@@ -1,0 +1,37 @@
+#containerSmallImg {
+    height: 28px;
+    position: relative;
+}
+
+.div1Img {
+    float: left;
+
+    /*! border: 1px solid white; */
+    margin-right: 3.333%;
+    margin-bottom: 3.333%;
+
+    position: relative;
+}
+
+.div1Img {
+    height: 100%;
+}
+
+.div2Img{
+    height: 100%;
+    background-color: rgba(204, 204, 204, 0.35);
+    border-radius: 10%;
+    border: 1px solid white;
+    width: 100%;
+    text-align: center;
+}
+
+.rectangle{
+    position: absolute;
+    background-color: white;
+    border-radius: 10%;
+    bottom: -1px;
+    width: 100%;
+    left: 5%;
+}
+
