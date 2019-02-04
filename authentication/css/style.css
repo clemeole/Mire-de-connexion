@@ -1,0 +1,115 @@
+body, html{
+  margin: 0;
+  height: 100%;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    background-image: url("../img/bg_space.jpg");
+    position: relative;
+    z-index: -1;
+}
+
+#blocPage::before {
+    content: "";
+    background-image: url("../img/bg_blue.jpg");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.7;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+    background-repeat: no-repeat;
+}
+
+#blocPage{
+  height: 100%;
+  position: relative;
+}
+
+#divLeft, #divRight{
+  width: 50%;
+  height: 100%;
+  display: inline-block;
+  float: left;
+}
+
+
+#divLeft{
+  //background-color: blueviolet;
+}
+
+#divRight{
+  //background-color: orangered;
+}
+
+#containerPupil:hover, #containerClassroom:hover{
+  cursor: pointer;
+  -webkit-transform: scale(1.1, 1.1);
+}
+
+
+#containerPupil, #containerClassroom{
+  height: 200px;
+  width: 200px;
+  margin: auto;
+  border-radius: 5%;
+  border: 2px solid white;
+  background-color: rgba(204, 204, 204, 0.35);
+  -webkit-transition: .5s;
+}
+
+#containerClassroom{
+}
+
+#containerPupil{
+}
+
+#topbar{
+    position: relative;
+    position: absolute;
+    width: 100%;
+    height: 2%;
+    z-index: 5;
+}
+
+#date{
+    top: 50%;
+    bottom: 50%;
+    margin: 0;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    color: white;
+    font-size: 0.7rem;
+}
+
+#divPower{
+    position: absolute;
+    margin: 0;
+    position: absolute;
+    right: 1%;
+    top: 50%;
+    bottom: 50%;
+    height: 25px;
+    width: 25px;
+    text-align: center;
+}
+
+#divPower:hover{
+    border-radius: 10%;
+    cursor: pointer;
+    //background-color: black;
+    background-color: rgba(204, 204, 204, 0.35);
+}
+
+#power{
+   height: 80%;
+}
+
+#power>img{
+    height: 100%;
