@@ -2,11 +2,11 @@
   position: absolute;
   width: 30%;
   height: 70%;
-  background-color: red;
-  //background-color: rgb(204, 204, 204);
+  background-color: rgb(204, 204, 204);
   border: 2px solid white;
   border-radius: 2%;
   z-index: 500;
+  overflow: scroll;
 }
 
 #beforewindowPupills{
@@ -14,4 +14,53 @@
   opacity: 0;
   width: 100%;
   height: 100%;
+}
+
+#blocPupills{
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.containerImg{
+  float: left;
+  display: inline-block;
+  width: 30%;
+  height: 30%;
+  margin-right: 0.8rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  margin-left: 0.2rem;
+  text-align: center;
+  position: relative;
+}
+
+.pupillImage{
+  border-radius: 4%;
+  position: absolute;
+  position: relative;
+  background-color: blueviolet;
+  width: 80%;
+  height: 80%;
+  transition-duration: 0.1s;
+}
+
+.pupillImage:hover{
+  cursor: pointer;
+}
+
+.pupillImage:active{
+  transform: scale(0.92);
+}
+
+.namePupill{
+  position: absolute;
+  bottom: 0;
+}
+
+.selectedIcon{
+  height: 50px;
+  width: 50px;
+  background-color: green;
+  position: absolute;
 }

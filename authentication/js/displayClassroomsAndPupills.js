@@ -3,8 +3,18 @@ $(document).ready(function() {
   var containerClassroom = $("#containerClassroom");
   var containerPupil = $("#containerPupil");
 
+  var windowPupills = $("<div></div>");
+  var windowClassrooms = $("<div></div>");
+
   var blocPage = $("#blocPage");
 
+  var blocPupills = $("<div id=\"blocPupills\"></div>");
+
+  var selectedIcon = $("<div></div>");
+  selectedIcon.addClass("selectedIcon");
+
+
+  createPupills();
 
 
   containerClassroom.click(function() {
@@ -12,47 +22,78 @@ $(document).ready(function() {
   });
 
   containerPupil.click(function() {
+    displayWindowPupills();
     displayPupills();
+
+    $(".pupillImage").click(function() {
+      addSelected($(this));
+    });
+
+
   });
+
+
+  function createPupills() {
+
+    for (var i = 0; i < 18; i += 1) {
+      var containerImg = $("<div></div>");
+      containerImg.addClass("containerImg");
+      var pupillImage = $("<div></div>");
+      pupillImage.addClass("pupillImage");
+      var namePupill = $("<p>clément plantier</p>")
+      namePupill.addClass("namePupill");
+
+      containerImg.append(pupillImage);
+      containerImg.append(namePupill);
+      blocPupills.append(containerImg);
+
+
+    }
+
+  }
 
 
   function displayPupills() {
 
-    var windowPupills = $("<div></div>");
+    windowPupills.append(blocPupills);
 
+    centerHorinzontally($(".containerImg"), $(".namePupill"));
+    centerHorinzontally($(".containerImg"), $(".pupillImage"));
+
+  }
+
+
+
+
+  function displayWindowPupills() {
 
     windowPupills.addClass("windowPupills");
     blocPage.append(windowPupills);
 
     $(".windowPupills").before("<div id= \"beforewindowPupills\"> </div>");
-    //windowClassrooms.append(beforewindowClassrooms);
     squareDimensions(windowPupills);
     centerVertically(blocPage, windowPupills);
     centerHorinzontally(blocPage, windowPupills);
 
+    $("#topbar").css("-webkit-filter", "blur(5px)");
+    $("#divLeft").css("-webkit-filter", "blur(5px)");
+    $("#divRight").css("-webkit-filter", "blur(5px)");
+
+
     $("#beforewindowPupills").click(function() {
-      console.log("gre");
-      $(".windowPupills").remove();
-      $(this).remove();
+
+      removeWindow(windowPupills, $(this));
       $("#topbar").css("-webkit-filter", "blur(0px)");
       $("#divLeft").css("-webkit-filter", "blur(0px)");
       $("#divRight").css("-webkit-filter", "blur(0px)");
 
     });
 
-
-    $("#topbar").css("-webkit-filter", "blur(5px)");
-    $("#divLeft").css("-webkit-filter", "blur(5px)");
-    $("#divRight").css("-webkit-filter", "blur(5px)");
-
   }
 
 
 
   function displayClassrooms() {
-
-    var windowClassrooms = $("<div></div>");
-
 
     windowClassrooms.addClass("windowClassrooms");
     blocPage.append(windowClassrooms);
@@ -66,12 +107,8 @@ $(document).ready(function() {
 
     $("#beforewindowClassrooms").click(function() {
       console.log("gre");
-      $(".windowClassrooms").remove();
-      $(this).remove();
-      $("#topbar").css("-webkit-filter", "blur(0px)");
-      $("#divLeft").css("-webkit-filter", "blur(0px)");
-      $("#divRight").css("-webkit-filter", "blur(0px)");
 
+      removeWindow(windowClassrooms, $(this));
     });
 
 
@@ -80,6 +117,25 @@ $(document).ready(function() {
     $("#divRight").css("-webkit-filter", "blur(5px)");
 
   }
+
+
+
+  function addSelected(image) {
+    image.append(selectedIcon);
+    removeWindow(windowPupills, beforewindowPupills);
+  }
+
+  function removeWindow(container, before) {
+    container.remove();
+    before.remove();
+    $("#topbar").css("-webkit-filter", "blur(0px)");
+    $("#divLeft").css("-webkit-filter", "blur(0px)");
+    $("#divRight").css("-webkit-filter", "blur(0px)");
+
+  }
+
+
+
 
 
 
@@ -111,5 +167,9 @@ $(document).ready(function() {
     var hContent = content.height();
     content.css("width", hContent);
   }
+
+
+
+
 
 });

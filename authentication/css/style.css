@@ -11,7 +11,7 @@ body {
     z-index: -1;
 }
 
-#blocPage::before {
+body::before {
     content: "";
     background-image: url("../img/bg_blue.jpg");
     background-size: cover;
@@ -29,6 +29,7 @@ body {
 #blocPage{
   height: 100%;
   position: relative;
+  
 }
 
 #divLeft, #divRight{
@@ -45,6 +46,24 @@ body {
 
 #divRight{
   //background-color: orangered;
+  position: relative;
+}
+
+#btn_check{
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+}
+
+.picto:hover{
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+#btn_check>img{
+  height: 100%;
 }
 
 #containerPupil:hover, #containerClassroom:hover{
