@@ -45,6 +45,11 @@
   transition-duration: 0.1s;
 }
 
+.pupillIcon{
+  height: 90%;
+  position: absolute;
+}
+
 .pupillImage:hover{
   cursor: pointer;
 }
@@ -62,5 +67,14 @@
   height: 50px;
   width: 50px;
   background-color: green;
+  position: absolute;
+}
+
+#containerPupil{
+  position: relative;
+}
+
+.currentPupill{
+  height: 80%;
   position: absolute;
 }
