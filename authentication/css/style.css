@@ -57,9 +57,17 @@ body::before {
   right: 50px;
 }
 
+.picto{
+  transition-duration: 0.05s;
+}
+
 .picto:hover{
   opacity: 0.8;
   cursor: pointer;
+}
+
+.picto:active{
+  transform: scale(0.9);
 }
 
 #btn_check>img{
