@@ -13,6 +13,8 @@ $(document).ready(function() {
   var selectedIcon = $("<div></div>");
   selectedIcon.addClass("selectedIcon");
 
+  var currentPupill = $("<img src=\"\" />");
+
 
   createPupills();
 
@@ -26,7 +28,30 @@ $(document).ready(function() {
     displayPupills();
 
     $(".pupillImage").click(function() {
-      addSelected($(this));
+      //set index to the selectedIcon relative to the container of .pupillImage, in order to identify the pupill.
+
+
+      console.log($(this).children().attr("src"));
+      console.log(currentPupill.attr("src"));
+
+      if ($(this).children().attr("src") != currentPupill.attr("src")) {
+
+        console.log("hey je suis rentré !");
+        var index = $(".pupillImage").index(this);
+        addSelected($(this), index);
+        currentPupill = $("<img src=\"" + $(this).children().attr("src") + "\" />");
+        currentPupill.addClass("currentPupill");
+
+        $("#containerPupil").append(currentPupill);
+        centerVertically($("#containerPupil"), currentPupill);
+        centerHorinzontally($("#containerPupil"), currentPupill);
+
+      } else {
+        var index = $(".pupillImage").index(this);
+        addSelected($(this), index);
+      }
+
+
     });
 
 
@@ -40,12 +65,18 @@ $(document).ready(function() {
       containerImg.addClass("containerImg");
       var pupillImage = $("<div></div>");
       pupillImage.addClass("pupillImage");
+      var pupillIcon = $("<img src=\"img/ghost.png\" />");
+      pupillIcon.addClass("pupillIcon");
       var namePupill = $("<p>clément plantier</p>")
       namePupill.addClass("namePupill");
 
       containerImg.append(pupillImage);
+      pupillImage.append(pupillIcon);
       containerImg.append(namePupill);
       blocPupills.append(containerImg);
+
+      pupillIcon.css("display", "inline-block");
+
 
 
     }
@@ -59,6 +90,9 @@ $(document).ready(function() {
 
     centerHorinzontally($(".containerImg"), $(".namePupill"));
     centerHorinzontally($(".containerImg"), $(".pupillImage"));
+
+    centerVertically($(".pupillImage"), $(".pupillIcon"));
+    centerHorinzontally($(".pupillImage"), $(".pupillIcon"));
 
   }
 
@@ -83,9 +117,7 @@ $(document).ready(function() {
     $("#beforewindowPupills").click(function() {
 
       removeWindow(windowPupills, $(this));
-      $("#topbar").css("-webkit-filter", "blur(0px)");
-      $("#divLeft").css("-webkit-filter", "blur(0px)");
-      $("#divRight").css("-webkit-filter", "blur(0px)");
+
 
     });
 
@@ -106,7 +138,7 @@ $(document).ready(function() {
 
 
     $("#beforewindowClassrooms").click(function() {
-      console.log("gre");
+
 
       removeWindow(windowClassrooms, $(this));
     });
@@ -120,8 +152,10 @@ $(document).ready(function() {
 
 
 
-  function addSelected(image) {
+  function addSelected(image, index) {
     image.append(selectedIcon);
+
+    selectedIcon.attr("id", index);
     removeWindow(windowPupills, beforewindowPupills);
   }
 
@@ -144,12 +178,13 @@ $(document).ready(function() {
 
   function centerVertically(container, content) {
     var space;
-    console.log(content.height());
+    //console.log("content " + content.innerHeight());
+    //console.log("container " + content.innerHeight());
     space = container.height() - content.height();
     space /= 2;
 
     content.css("top", space);
-    console.log("hey");
+
     //content.css("margin-top", space);
   }
 
