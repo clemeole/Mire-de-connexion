@@ -9,18 +9,56 @@ $(document).ready(function() {
   var blocPage = $("#blocPage");
 
   var blocPupills = $("<div id=\"blocPupills\"></div>");
+  var blocClassrooms = $("<div id=\"blocClassrooms\"></div>");
 
   var selectedIcon = $("<div></div>");
+  var selectedIconC = $("<div></div>");
+
   selectedIcon.addClass("selectedIcon");
+  selectedIconC.addClass("selectedIconC");
 
   var currentPupill = $("<img src=\"\" />");
+  var currentClassroom = $("<img src=\"\" />");
 
 
   createPupills();
+  createClassrooms();
 
 
   containerClassroom.click(function() {
+    displayWindowClassrooms();
     displayClassrooms();
+
+    $(".classroomImage").click(function() {
+      //set index to the selectedIconC relative to the container of .pupillImage, in order to identify the pupill.
+
+
+      console.log($(this).children().attr("src"));
+      console.log(currentClassroom.attr("src"));
+
+      if ($(this).children().attr("src") != currentClassroom.attr("src")) {
+
+        console.log("hey je suis rentré !");
+        var index = $(".classroomImage").index(this);
+        addSelectedC($(this), index);
+        currentClassroom = $("<img src=\"" + $(this).children().attr("src") + "\" />");
+        currentClassroom.addClass("currentClassroom");
+
+        $("#containerClassroom").append(currentClassroom);
+        centerVertically($("#containerClassroom"), currentClassroom);
+        centerHorinzontally($("#containerClassroom"), currentClassroom);
+        removeWindow(windowClassrooms, beforewindowClassrooms);
+
+      } else {
+        var index = $(".classroomImage").index(this);
+        addSelectedC($(this), index);
+        removeWindow(windowClassrooms, beforewindowClassrooms);
+      }
+
+
+    });
+
+
   });
 
   containerPupil.click(function() {
@@ -46,9 +84,12 @@ $(document).ready(function() {
         centerVertically($("#containerPupil"), currentPupill);
         centerHorinzontally($("#containerPupil"), currentPupill);
 
+        removeWindow(windowPupills, beforewindowPupills);
+
       } else {
         var index = $(".pupillImage").index(this);
         addSelected($(this), index);
+        removeWindow(windowPupills, beforewindowPupills);
       }
 
 
@@ -83,6 +124,28 @@ $(document).ready(function() {
 
   }
 
+  function createClassrooms() {
+
+    for (var c = 0; c < 2; c += 1) {
+      var containerImgC = $("<div></div>");
+      containerImgC.addClass("containerImgC");
+      var classroomImage = $("<div></div>");
+      classroomImage.addClass("classroomImage");
+      var classroomIcon = $("<img src=\"img/alarm.png\" />");
+      classroomIcon.addClass("classroomIcon");
+      var nameClassroom = $("<p>Classe numéro " + c + "</p>");
+      nameClassroom.addClass("nameClassroom");
+
+      containerImgC.append(classroomImage);
+      classroomImage.append(classroomIcon);
+      containerImgC.append(nameClassroom);
+      blocClassrooms.append(containerImgC);
+
+      classroomIcon.css("display", "inline-block");
+    }
+
+  }
+
 
   function displayPupills() {
 
@@ -93,6 +156,18 @@ $(document).ready(function() {
 
     centerVertically($(".pupillImage"), $(".pupillIcon"));
     centerHorinzontally($(".pupillImage"), $(".pupillIcon"));
+
+  }
+
+
+  function displayClassrooms() {
+    windowClassrooms.append(blocClassrooms);
+
+    centerHorinzontally($(".containerImgC"), $(".nameClassroom"));
+    centerHorinzontally($(".containerImgC"), $(".classroomImage"));
+
+    centerVertically($(".classroomImage"), $(".classroomIcon"));
+    centerHorinzontally($(".classroomImage"), $(".classroomIcon"));
 
   }
 
@@ -125,7 +200,7 @@ $(document).ready(function() {
 
 
 
-  function displayClassrooms() {
+  function displayWindowClassrooms() {
 
     windowClassrooms.addClass("windowClassrooms");
     blocPage.append(windowClassrooms);
@@ -156,7 +231,13 @@ $(document).ready(function() {
     image.append(selectedIcon);
 
     selectedIcon.attr("id", index);
-    removeWindow(windowPupills, beforewindowPupills);
+
+  }
+
+  function addSelectedC(image, index) {
+    image.append(selectedIconC);
+
+    selectedIconC.attr("id", index);
   }
 
   function removeWindow(container, before) {
