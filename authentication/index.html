@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/classrooms.css">
   <link rel="stylesheet" href="css/pupills.css">
+  <link rel="stylesheet" href="css/style2.css">
+  <link rel="stylesheet" href="css/smallImg.css">
 </head>
 
 <body>
@@ -18,20 +20,117 @@
   <div id="blocPage">
 
     <div id="divLeft">
-      <div id="containerClassroom"></div>
+      <div id="containerClassroom">
+        <img src="img/classroomDefault.svg" id="classroomDefault" alt="">
+      </div>
     </div>
 
     <div id="divRight">
-      <div id="containerPupil"></div>
-      <div id="btn_check" class="picto"><img src="img/btn_check.svg" alt=""></div>
+      <div id="containerPupil">
+        <img src="img/pupillDefault" id="pupillDefault" alt="">
+      </div>
+
     </div>
 
   </div>
+
+
+
+  <div id="block">
+
+    <div id="firstContainer">
+      <div id="containerImg">
+
+
+        <div class="image">
+          <img src="img/alarm.png" alt="alarm">
+        </div>
+
+        <div class="image">
+          <img src="img/piano.png" alt="">
+        </div>
+
+        <div class="image">
+          <img src="img/moon.png" alt="alarm">
+        </div>
+
+        <div class="image">
+          <img src="img/ghost.png" alt="alarm">
+        </div>
+
+        <div class="image">
+          <img src="img/soccer_ball.png" alt="alarm">
+        </div>
+
+        <div class="image">
+          <img src="img/hot_air_ballon.png" alt="">
+        </div>
+
+        <div class="image">
+          <img src="img/hourglass.png" alt="alarm">
+        </div>
+
+        <div class="image">
+          <img src="img/house.png" alt="">
+        </div>
+
+        <div class="image">
+          <img src="img/phone.png" alt="">
+        </div>
+
+
+
+
+
+      </div>
+
+      <div id="containerPicto">
+        <div>
+          <img src="img/btn_restart.svg" class="picto" alt="">
+        </div>
+        <div>
+          <img src="img/btn_check.svg" class="picto" alt="">
+        </div>
+        <div>
+          <img src="img/btn_cancel.svg" class="picto" alt="">
+        </div>
+      </div>
+    </div>
+
+
+
+    <div id="secondContainer">
+      <div id="containerInput">
+        <label>Prénom</label>
+        <div id="inputBg">
+          <input type="text" autofocus>
+        </div>
+
+        <div id="pwdImg">
+          <p id="pPwd">Afficher le mot de passe</p>
+          <div id="containerSmallImg">
+
+          </div>
+
+        </div>
+        <div id="loading"><img src="img/loading.gif" alt="loading"></div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div id="btn_check" class="picto"><img src="img/btn_check.svg" alt=""></div>
+  <div id="btn_check2" class="picto"><img src="img/btn_check.svg" alt=""></div>
+
 
   <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 
   <script src="js/position.js"></script>
   <script src="js/displayClassroomsAndPupills.js"></script>
+  <script src="js/addPupill.js"></script>
+  <script src="js/btnCheck.js"></script>
 
 </body>
 
