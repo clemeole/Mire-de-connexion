@@ -1,7 +1,6 @@
 .windowPupills{
   position: absolute;
-  width: 30%;
-  height: 70%;
+  height: 80%;
   background-color: rgb(204, 204, 204);
   border: 2px solid white;
   border-radius: 2%;
@@ -14,6 +13,7 @@
   opacity: 0;
   width: 100%;
   height: 100%;
+  z-index: 1;
 }
 
 #blocPupills{
@@ -27,7 +27,7 @@
   display: inline-block;
   width: 30%;
   height: 30%;
-  margin-right: 0.8rem;
+  margin-right: 0.2rem;
   margin-bottom: 1rem;
   margin-top: 1rem;
   margin-left: 0.2rem;
@@ -60,7 +60,10 @@
 
 .namePupill{
   position: absolute;
-  bottom: 0;
+  bottom: -1rem;
+  font-size: 0.9rem;
+  width: 100%;
+  text-align: center;
 }
 
 .selectedIcon{
@@ -72,6 +75,12 @@
 
 #containerPupil{
   position: relative;
+}
+
+#pupillDefault{
+  display: inline-block;
+  height: 80%;
+  position: absolute;
 }
 
 .currentPupill{
