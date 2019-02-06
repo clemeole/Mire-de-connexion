@@ -9,6 +9,7 @@ body {
     background-image: url("../img/bg_space.jpg");
     position: relative;
     z-index: -1;
+    overflow: hidden;
 }
 
 body::before {
@@ -30,6 +31,8 @@ body::before {
   height: 100%;
   position: relative;
   
+  position: absolute;
+  width: 100%;
 }
 
 #divLeft, #divRight{
@@ -42,19 +45,40 @@ body::before {
 
 #divLeft{
   //background-color: blueviolet;
+  position: absolute;
+  left: 0;
 }
 
 #divRight{
   //background-color: orangered;
   position: relative;
+  position: absolute;
+  right: 0;
 }
 
 #btn_check{
   height: 50px;
   width: 50px;
-  position: absolute;
+  position: fixed;
   bottom: 50px;
   right: 50px;
+}
+
+#btn_check>img{
+  height: 100%;
+}
+
+#btn_check2{
+  height: 50px;
+  width: 50px;
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  display: none;
+}
+
+#btn_check2>img{
+  height: 100%;
 }
 
 .picto{
@@ -70,9 +94,7 @@ body::before {
   transform: scale(0.9);
 }
 
-#btn_check>img{
-  height: 100%;
-}
+
 
 #containerPupil:hover, #containerClassroom:hover{
   cursor: pointer;

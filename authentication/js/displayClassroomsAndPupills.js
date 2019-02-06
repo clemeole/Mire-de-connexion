@@ -48,6 +48,7 @@ $(document).ready(function() {
         centerVertically($("#containerClassroom"), currentClassroom);
         centerHorinzontally($("#containerClassroom"), currentClassroom);
         removeWindow(windowClassrooms, beforewindowClassrooms);
+        $("#classroomDefault").remove();
 
       } else {
         var index = $(".classroomImage").index(this);
@@ -85,6 +86,7 @@ $(document).ready(function() {
         centerHorinzontally($("#containerPupil"), currentPupill);
 
         removeWindow(windowPupills, beforewindowPupills);
+        $("#pupillDefault").remove();
 
       } else {
         var index = $(".pupillImage").index(this);
@@ -108,7 +110,7 @@ $(document).ready(function() {
       pupillImage.addClass("pupillImage");
       var pupillIcon = $("<img src=\"img/ghost.png\" />");
       pupillIcon.addClass("pupillIcon");
-      var namePupill = $("<p>clément plantier</p>")
+      var namePupill = $("<p>Elève numéro " + i + "</p>")
       namePupill.addClass("namePupill");
 
       containerImg.append(pupillImage);
@@ -187,7 +189,7 @@ $(document).ready(function() {
     $("#topbar").css("-webkit-filter", "blur(5px)");
     $("#divLeft").css("-webkit-filter", "blur(5px)");
     $("#divRight").css("-webkit-filter", "blur(5px)");
-
+    $("#btn_check").css("-webkit-filter", "blur(5px)");
 
     $("#beforewindowPupills").click(function() {
 
@@ -222,7 +224,7 @@ $(document).ready(function() {
     $("#topbar").css("-webkit-filter", "blur(5px)");
     $("#divLeft").css("-webkit-filter", "blur(5px)");
     $("#divRight").css("-webkit-filter", "blur(5px)");
-
+    $("#btn_check").css("-webkit-filter", "blur(5px)");
   }
 
 
@@ -246,6 +248,7 @@ $(document).ready(function() {
     $("#topbar").css("-webkit-filter", "blur(0px)");
     $("#divLeft").css("-webkit-filter", "blur(0px)");
     $("#divRight").css("-webkit-filter", "blur(0px)");
+    $("#btn_check").css("-webkit-filter", "blur(0px)");
 
   }
 
@@ -259,8 +262,8 @@ $(document).ready(function() {
 
   function centerVertically(container, content) {
     var space;
-    //console.log("content " + content.innerHeight());
-    //console.log("container " + content.innerHeight());
+    console.log("content " + content.innerHeight());
+    console.log("container " + content.innerHeight());
     space = container.height() - content.height();
     space /= 2;
 
@@ -274,7 +277,8 @@ $(document).ready(function() {
     var space;
     space = container.width() - content.width();
     space /= 2;
-
+    console.log(container.width());
+    console.log(content.width());
     content.css("left", space);
   }
 
