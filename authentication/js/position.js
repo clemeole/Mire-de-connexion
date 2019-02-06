@@ -132,7 +132,7 @@ $(document).ready(function() {
   borderLeftWidthContainerBlock = parseInt($("#containerImg").css("border-left-width"));
   borderRightWidthContainerBlock = parseInt($("#containerImg").css("border-right-width"));
 
-  $("#block").css("left", parseInt($("#block").css("width")) - parseInt($("#containerImg").css("marginLeft")));
+
 
 
 });

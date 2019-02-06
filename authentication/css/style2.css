@@ -93,10 +93,6 @@ img {
     height: 80%;
 }
 
-.picto{
-    opacity: 1;
-}
-
 .picto:hover{
     opacity: 0.8;
 }

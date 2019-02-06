@@ -9,7 +9,6 @@ body {
     background-image: url("../img/bg_space.jpg");
     position: relative;
     z-index: -1;
-    overflow: hidden;
 }
 
 body::before {
@@ -78,6 +77,19 @@ body::before {
 }
 
 #btn_check2>img{
+  height: 100%;
+}
+
+#btn_cancel{
+  height: 50px;
+  width: 50px;
+  position: fixed;
+  bottom: 50px;
+  left: 50px;
+  display: none;
+}
+
+#btn_cancel>img{
   height: 100%;
 }
 
