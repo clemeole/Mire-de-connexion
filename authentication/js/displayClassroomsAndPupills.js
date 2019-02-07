@@ -33,12 +33,8 @@ $(document).ready(function() {
       //set index to the selectedIconC relative to the container of .pupillImage, in order to identify the pupill.
 
 
-      console.log($(this).children().attr("src"));
-      console.log(currentClassroom.attr("src"));
-
       if ($(this).children().attr("src") != currentClassroom.attr("src")) {
 
-        console.log("hey je suis rentré !");
         var index = $(".classroomImage").index(this);
         addSelectedC($(this), index);
         currentClassroom = $("<img src=\"" + $(this).children().attr("src") + "\" />");
@@ -70,12 +66,8 @@ $(document).ready(function() {
       //set index to the selectedIcon relative to the container of .pupillImage, in order to identify the pupill.
 
 
-      console.log($(this).children().attr("src"));
-      console.log(currentPupill.attr("src"));
-
       if ($(this).children().attr("src") != currentPupill.attr("src")) {
 
-        console.log("hey je suis rentré !");
         var index = $(".pupillImage").index(this);
         addSelected($(this), index);
         currentPupill = $("<img src=\"" + $(this).children().attr("src") + "\" />");
@@ -262,14 +254,10 @@ $(document).ready(function() {
 
   function centerVertically(container, content) {
     var space;
-    console.log("content " + content.innerHeight());
-    console.log("container " + content.innerHeight());
     space = container.height() - content.height();
     space /= 2;
 
     content.css("top", space);
-
-    //content.css("margin-top", space);
   }
 
 
@@ -277,8 +265,6 @@ $(document).ready(function() {
     var space;
     space = container.width() - content.width();
     space /= 2;
-    console.log(container.width());
-    console.log(content.width());
     content.css("left", space);
   }
 

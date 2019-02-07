@@ -28,7 +28,7 @@ $(document).ready(function() {
   var divPower = document.querySelector("#divPower");
   var power = document.querySelector("#power");
 
-  var name = document.querySelector("label");
+  //var name = document.querySelector("label");
 
 
 
@@ -43,7 +43,7 @@ $(document).ready(function() {
   centerVerticallyJquery($("#containerPupil"), pupillDefault);
 
 
-  smallImgContainer.style.width = document.querySelector("input").offsetWidth + "px";
+  //smallImgContainer.style.width = document.querySelector("input").offsetWidth + "px";
   adaptSize(smallImgContainer, smallImg);
   //adaptSize(smallImgContainer, rectangles);
 
@@ -54,7 +54,7 @@ $(document).ready(function() {
   //centerVertically(containerSmallImg, smallImg);
   centerVertically(divPower, power);
 
-  name.style.paddingTop = (1 / 5) * containerImg.offsetHeight + "px";
+  //name.style.paddingTop = (1 / 5) * containerImg.offsetHeight + "px";
 
 
   for (var i = 0; i < images.length; i++) {
@@ -67,7 +67,8 @@ $(document).ready(function() {
 
 
 
-
+  $("#containerSmallImg").css("height", parseInt($(".image").css("height")) / 2);
+  centerVerticallyJquery($("#containerInput"), $("#containerSmallImg"));
 
 
 
@@ -96,8 +97,6 @@ $(document).ready(function() {
 
   function centerVerticallyJquery(container, content) {
     var space;
-    console.log("content " + content.innerHeight());
-    console.log("container " + content.innerHeight());
     space = container.height() - content.height();
     space /= 2;
 
@@ -110,8 +109,6 @@ $(document).ready(function() {
     var space;
     space = container.width() - content.width();
     space /= 2;
-    console.log(container.width());
-    console.log(content.width());
     content.css("left", space);
   }
 

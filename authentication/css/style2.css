@@ -76,10 +76,11 @@ img {
 }
 
 #containerPicto {
-    height: 69px;
-    width: 330px;
+    /*! height: 69px; */
+    /*! width: 330px; */
     text-align: center;
-    margin: auto;
+    /*! margin: auto; */
+    display: none;
 }
 
 #containerPicto > div {
@@ -149,7 +150,7 @@ input {
     height: 50%;
 }
 
-#pwdImg > p {
+#pPwd {
     font-size: 0.8rem;
     /*! text-decoration: underline; */
     display: inline-block;
@@ -158,7 +159,7 @@ input {
     color: yellow;
 }
 
-#pwdImg > P:hover {
+#pPwd:hover {
     cursor: pointer;
     text-decoration: underline;
 }
