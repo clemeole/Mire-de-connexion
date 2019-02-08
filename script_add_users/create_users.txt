@@ -1,0 +1,24 @@
+#!/bin/sh
+
+groupadd ce1
+groupadd cp1
+groupadd maternelle1
+
+
+for i in `more ce1.txt `
+do
+echo $i
+useradd -G ce1 -m $i
+done
+
+for i in `more cp1.txt `
+do
+echo $i
+useradd -G cp1 -m $i
+done
+
+for i in `more maternelle1.txt `
+do
+echo $i
+useradd -G maternelle1 -m $i
+done

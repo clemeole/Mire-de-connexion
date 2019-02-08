@@ -49,6 +49,8 @@ img {
     height: 342px;
     width: 342px;
     margin: auto;
+    
+  //box-shadow: 0px 0px 40px 1px white;
 }
 
 
@@ -109,6 +111,7 @@ img {
 #containerInput {
     height: 40%;
     position: relative;
+    width: 70%;
 }
 
 #containerInput > label {

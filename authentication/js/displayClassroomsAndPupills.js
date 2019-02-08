@@ -100,7 +100,7 @@ $(document).ready(function() {
       containerImg.addClass("containerImg");
       var pupillImage = $("<div></div>");
       pupillImage.addClass("pupillImage");
-      var pupillIcon = $("<img src=\"img/ghost.png\" />");
+      var pupillIcon = $("<img src=\"img/michel.jpg\" />");
       pupillIcon.addClass("pupillIcon");
       var namePupill = $("<p>Elève numéro " + i + "</p>")
       namePupill.addClass("namePupill");
@@ -145,11 +145,16 @@ $(document).ready(function() {
 
     windowPupills.append(blocPupills);
 
+    $(".containerImg").css("display", "block");
     centerHorinzontally($(".containerImg"), $(".namePupill"));
     centerHorinzontally($(".containerImg"), $(".pupillImage"));
 
     centerVertically($(".pupillImage"), $(".pupillIcon"));
     centerHorinzontally($(".pupillImage"), $(".pupillIcon"));
+
+
+
+
 
   }
 
@@ -178,10 +183,14 @@ $(document).ready(function() {
     centerVertically(blocPage, windowPupills);
     centerHorinzontally(blocPage, windowPupills);
 
-    $("#topbar").css("-webkit-filter", "blur(5px)");
-    $("#divLeft").css("-webkit-filter", "blur(5px)");
-    $("#divRight").css("-webkit-filter", "blur(5px)");
-    $("#btn_check").css("-webkit-filter", "blur(5px)");
+    blurElement($("#topbar"), 5);
+    blurElement($("#divLeft"), 5);
+    blurElement($("#divRight"), 5);
+    blurElement($("#btn_check"), 5);
+    //$("#topbar").css("-webkit-filter", "blur(5px)");
+    /*  $("#divLeft").css("-webkit-filter", "blur(5px)");
+      $("#divRight").css("-webkit-filter", "blur(5px)");
+      $("#btn_check").css("-webkit-filter", "blur(5px)");*/
 
     $("#beforewindowPupills").click(function() {
 
@@ -205,6 +214,11 @@ $(document).ready(function() {
     centerVertically(blocPage, windowClassrooms);
     centerHorinzontally(blocPage, windowClassrooms);
 
+    blurElement($("#topbar"), 5);
+    blurElement($("#divLeft"), 5);
+    blurElement($("#divRight"), 5);
+    blurElement($("#btn_check"), 5);
+
 
     $("#beforewindowClassrooms").click(function() {
 
@@ -213,16 +227,34 @@ $(document).ready(function() {
     });
 
 
-    $("#topbar").css("-webkit-filter", "blur(5px)");
-    $("#divLeft").css("-webkit-filter", "blur(5px)");
-    $("#divRight").css("-webkit-filter", "blur(5px)");
-    $("#btn_check").css("-webkit-filter", "blur(5px)");
+
   }
 
+
+  function blurElement(element, size) {
+    var filterVal = 'blur(' + size + 'px)';
+    $(element).css({
+      'filter': filterVal,
+      'webkitFilter': filterVal,
+      'mozFilter': filterVal,
+      'oFilter': filterVal,
+      'msFilter': filterVal,
+      'transition': 'all 0.2s ease-out',
+      '-webkit-transition': 'all 0.2s ease-out',
+      '-moz-transition': 'all 0.2s ease-out',
+      '-o-transition': 'all 0.2s ease-out'
+    });
+
+  }
 
 
   function addSelected(image, index) {
     image.append(selectedIcon);
+
+    /*  if (image.css("border", "2px solid green")) {
+        console.log(image.css("border", "2px solid green"));
+      }*/
+    //image.css("border", "2px solid green");
 
     selectedIcon.attr("id", index);
 
@@ -231,16 +263,19 @@ $(document).ready(function() {
   function addSelectedC(image, index) {
     image.append(selectedIconC);
 
+
+    //  image.css("border", "2px solid green");
+
     selectedIconC.attr("id", index);
   }
 
   function removeWindow(container, before) {
     container.remove();
     before.remove();
-    $("#topbar").css("-webkit-filter", "blur(0px)");
-    $("#divLeft").css("-webkit-filter", "blur(0px)");
-    $("#divRight").css("-webkit-filter", "blur(0px)");
-    $("#btn_check").css("-webkit-filter", "blur(0px)");
+    blurElement($("#topbar"), 0);
+    blurElement($("#divLeft"), 0);
+    blurElement($("#divRight"), 0);
+    blurElement($("#btn_check"), 0);
 
   }
 

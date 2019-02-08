@@ -5,7 +5,7 @@ var currentPwd = "";
 var buttonP;
 var containerSmallImg;
 var rectangles;
-var maxCara = 1000;
+var maxCara = 20;
 var allowWritePassword = true;
 
 window.addEventListener("load", function() {
@@ -84,6 +84,8 @@ window.addEventListener("load", function() {
 
   function addDivImage() {
 
+
+
     var div1 = $(document.createElement("div"));
     var div2 = $(document.createElement("div"));
     var cSmallImg = $("#containerSmallImg");
@@ -105,6 +107,10 @@ window.addEventListener("load", function() {
       if (window.getComputedStyle(allDiv2Img[0]).getPropertyValue("opacity") == "0") {
         div2.css("opacity", "0");
       } else if (window.getComputedStyle(allDiv2Img[0]).getPropertyValue("opacity") == "1") {
+        setTimeout(function() {
+          $(".rectangle").css("display", "none");
+        }, 1);
+
         div2.css("opacity", "1");
       }
 
@@ -184,7 +190,7 @@ window.addEventListener("load", function() {
 
       $(".rectangle").eq($(".rectangle").length - 1).animate({
         height: "100%"
-      }, 200);
+      }, 50);
 
 
     } else {
