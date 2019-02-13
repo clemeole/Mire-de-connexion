@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+
+
   var containerClassroom = $("#containerClassroom");
   var containerPupil = $("#containerPupil");
 
@@ -12,168 +14,161 @@ $(document).ready(function() {
   var blocClassrooms = $("<div id=\"blocClassrooms\"></div>");
 
   var selectedIcon = $("<div></div>");
-  var selectedIconC = $("<div></div>");
+  var selectedIconClassroom = $("<div id= \"\"></div>");
+  var hasSelectedIconPupill = false;
+  var hasSelectedIconClassroom = false;
+
 
   selectedIcon.addClass("selectedIcon");
-  selectedIconC.addClass("selectedIconC");
+  selectedIconClassroom.addClass("selectedIconClassroom");
 
   var currentPupill = $("<img src=\"\" />");
   var currentClassroom = $("<img src=\"\" />");
 
+  var srcClassroomDefault = "img/classroomDefault.svg";
+  var srcPupillDefault = "img/pupillDefault";
 
-  createPupills();
-  createClassrooms();
+  var loadedImgClassroomIcon = false;
+
+
 
 
   containerClassroom.click(function() {
     displayWindowClassrooms();
     displayClassrooms();
 
+
+
+
+
     $(".classroomImage").click(function() {
-      //set index to the selectedIconC relative to the container of .pupillImage, in order to identify the pupill.
 
-
-      if ($(this).children().attr("src") != currentClassroom.attr("src")) {
-
-        var index = $(".classroomImage").index(this);
-        addSelectedC($(this), index);
-        currentClassroom = $("<img src=\"" + $(this).children().attr("src") + "\" />");
-        currentClassroom.addClass("currentClassroom");
-
-        $("#containerClassroom").append(currentClassroom);
-        centerVertically($("#containerClassroom"), currentClassroom);
-        centerHorinzontally($("#containerClassroom"), currentClassroom);
-        removeWindow(windowClassrooms, beforewindowClassrooms);
-        $("#classroomDefault").remove();
-
-      } else {
-        var index = $(".classroomImage").index(this);
-        addSelectedC($(this), index);
-        removeWindow(windowClassrooms, beforewindowClassrooms);
+      if ($(".currentPupill").attr("class").split(" ")[0] != $(this).attr("id")) { // si l'image de l'élève n'a pas la même classe que celle selectionnée alors on remet l'image de l'élève par default
+        appendPupillToContainer($("<img src = " + srcPupillDefault + " />"));
       }
+
+      addSelectedClassroom($(this), $(this).attr("id"));
+      appendClassroomToContainer($(this).children());
+      removeClassrooms();
+      removeWindow(windowClassrooms, beforewindowClassrooms);
 
 
     });
 
 
   });
+
 
   containerPupil.click(function() {
     displayWindowPupills();
     displayPupills();
 
-    $(".pupillImage").click(function() {
-      //set index to the selectedIcon relative to the container of .pupillImage, in order to identify the pupill.
-
-
-      if ($(this).children().attr("src") != currentPupill.attr("src")) {
-
-        var index = $(".pupillImage").index(this);
-        addSelected($(this), index);
-        currentPupill = $("<img src=\"" + $(this).children().attr("src") + "\" />");
-        currentPupill.addClass("currentPupill");
-
-        $("#containerPupil").append(currentPupill);
-        centerVertically($("#containerPupil"), currentPupill);
-        centerHorinzontally($("#containerPupil"), currentPupill);
-
-        removeWindow(windowPupills, beforewindowPupills);
-        $("#pupillDefault").remove();
-
-      } else {
-        var index = $(".pupillImage").index(this);
-        addSelected($(this), index);
-        removeWindow(windowPupills, beforewindowPupills);
-      }
-
-
-    });
-
+    /*the addEventListener of the pupills image is inside the createPupills function*/
 
   });
 
 
+  /******************************************************************************************************
+
+  **********************************PUPILLS FUNCTIONS******************************************
+
+  *******************************************************************************************************/
+
   function createPupills() {
+    /*select pupills according to their classroom*/
+    var classe = "";
 
-    for (var i = 0; i < 18; i += 1) {
-      var containerImg = $("<div></div>");
-      containerImg.addClass("containerImg");
-      var pupillImage = $("<div></div>");
-      pupillImage.addClass("pupillImage");
-      var pupillIcon = $("<img src=\"img/michel.jpg\" />");
-      pupillIcon.addClass("pupillIcon");
-      var namePupill = $("<p>Elève numéro " + i + "</p>")
-      namePupill.addClass("namePupill");
-
-      containerImg.append(pupillImage);
-      pupillImage.append(pupillIcon);
-      containerImg.append(namePupill);
-      blocPupills.append(containerImg);
-
-      pupillIcon.css("display", "inline-block");
-
-
-
+    if ($("#classroomDefault").attr("src") == srcClassroomDefault) {
+      for (classe in eleves) {
+        for (var i = 0; i < eleves[classe].length; i++) {
+          //console.log(classe); // retourne le nom de la classe
+          blocPupills.append(generatePupills(eleves[classe][i], classe));
+        }
+      }
+    } else {
+      for (classe in eleves) {
+        for (var i = 0; i < eleves[classe].length; i++) {
+          if ($(".currentClassroom").attr("id") == classe) {
+            blocPupills.append(generatePupills(eleves[classe][i], classe));
+          }
+        }
+      }
     }
+
+    $(".pupillImage").click(function() {
+
+      if ($("#classroomDefault").attr("src") == srcClassroomDefault) {
+        var idThis = $(this).attr("class").split(" ")[0]
+        var c = $("<img id='" + idThis + "' src='img/" + idThis + ".png' class='currentClassroom' />");
+        c.on("load", function() {
+          appendClassroomToContainer(c);
+        });
+
+      }
+
+      $(this).children().attr("id", $(this).attr("id"));
+      $(this).children().addClass($(this).attr("class").split(" ")[0]);
+      appendPupillToContainer($(this).children()); // append l'image élève contenu dans la div .pupillImage
+      removePupills();
+      removeWindow(windowPupills, beforewindowPupills);
+    });
 
   }
 
-  function createClassrooms() {
 
-    for (var c = 0; c < 2; c += 1) {
-      var containerImgC = $("<div></div>");
-      containerImgC.addClass("containerImgC");
-      var classroomImage = $("<div></div>");
-      classroomImage.addClass("classroomImage");
-      var classroomIcon = $("<img src=\"img/alarm.png\" />");
-      classroomIcon.addClass("classroomIcon");
-      var nameClassroom = $("<p>Classe numéro " + c + "</p>");
-      nameClassroom.addClass("nameClassroom");
+  function generatePupills(eleve, c) {
+    /*generate pupills according to their classroom as images. return an HTML structure*/
+    var blocHtml = "";
 
-      containerImgC.append(classroomImage);
-      classroomImage.append(classroomIcon);
-      containerImgC.append(nameClassroom);
-      blocClassrooms.append(containerImgC);
+    userImg = eleve.image; //eleve.image.length > 0 ? eleve.image : 'img/michel.jpg';
+    //console.log(c);
+    blocHtml += "<div class='containerImg' style='display: block;'>"
+    blocHtml += "  <div id='" + eleve.name + "' class='" + c + " pupillImage' >" //style='left: 21.5px;'
+    blocHtml += "    <img src = " + userImg + " class='pupillIcon' style='display: inline-block; top: 8.5px; left: 13px;'>"
+    blocHtml += "  </div>"
+    blocHtml += "  <p class='namePupill' style='left: 0px;'>" + eleve.display_name + "</p>"
+    blocHtml += "</div>"
+    //console.log(eleve);
 
-      classroomIcon.css("display", "inline-block");
-    }
 
+    return blocHtml;
+  }
+
+
+  function removePupills() {
+    /*remove all the pupills image in the pupills window*/
+    $("#blocPupills").children().remove();
+  }
+
+
+
+  function appendPupillToContainer(pupill) {
+    /*append an img of a pupill in the pupill container*/
+    $("#containerPupil").children().remove();
+    $("#containerPupil").append(pupill);
+    pupill.removeClass("pupillIcon").addClass("currentPupill");
+
+    centerVertically($("#containerPupil"), pupill);
+    centerHorinzontally($("#containerPupil"), pupill);
   }
 
 
   function displayPupills() {
-
+    /*display all the pupills in a window + add event to center them all*/
     windowPupills.append(blocPupills);
+
+    createPupills();
 
     $(".containerImg").css("display", "block");
     centerHorinzontally($(".containerImg"), $(".namePupill"));
-    centerHorinzontally($(".containerImg"), $(".pupillImage"));
-
-    centerVertically($(".pupillImage"), $(".pupillIcon"));
-    centerHorinzontally($(".pupillImage"), $(".pupillIcon"));
-
-
-
-
+    //centerHorinzontally($(".containerImg"), $(".pupillImage"));
 
   }
-
-
-  function displayClassrooms() {
-    windowClassrooms.append(blocClassrooms);
-
-    centerHorinzontally($(".containerImgC"), $(".nameClassroom"));
-    centerHorinzontally($(".containerImgC"), $(".classroomImage"));
-
-    centerVertically($(".classroomImage"), $(".classroomIcon"));
-    centerHorinzontally($(".classroomImage"), $(".classroomIcon"));
-
-  }
-
-
 
 
   function displayWindowPupills() {
+
+    /*display the pupills window with css animation (blur) and a before to avoid the click effect of the user outside of the pupills window*/
 
     windowPupills.addClass("windowPupills");
     blocPage.append(windowPupills);
@@ -187,13 +182,9 @@ $(document).ready(function() {
     blurElement($("#divLeft"), 5);
     blurElement($("#divRight"), 5);
     blurElement($("#btn_check"), 5);
-    //$("#topbar").css("-webkit-filter", "blur(5px)");
-    /*  $("#divLeft").css("-webkit-filter", "blur(5px)");
-      $("#divRight").css("-webkit-filter", "blur(5px)");
-      $("#btn_check").css("-webkit-filter", "blur(5px)");*/
 
     $("#beforewindowPupills").click(function() {
-
+      removePupills();
       removeWindow(windowPupills, $(this));
 
 
@@ -201,9 +192,97 @@ $(document).ready(function() {
 
   }
 
+  function addSelectedPupill(image, index) {
+    image.append(selectedIcon);
+
+    selectedIcon.attr("id", index);
+
+  }
+
+
+  /******************************************************************************************************
+
+  **********************************CLASSROOMS FUNCTIONS******************************************
+
+  *******************************************************************************************************/
+
+
+  function createClassrooms() {
+    /*create all the classrooms*/
+
+    for (var classe in eleves) {
+      blocClassrooms.append(generateClassrooms(classe));
+      if (hasSelectedIconClassroom == classe) {
+
+      }
+    }
+
+
+  }
+
+
+  function generateClassrooms(classe) {
+    /*generate classrooms as images. return an HTML structure*/
+    var blocHtml = "";
+
+    srcImg = "img/" + classe + ".png";
+
+    blocHtml += "<div class='containerImgC'>"
+    blocHtml += "  <div id='" + classe + "' class='classroomImage' >" //style='left: 21.5px;'
+    blocHtml += "    <img id='" + classe + "' src = " + srcImg + " class='classroomIcon'>" // style='display: inline-block; top: 8.5px; left: 13px;'
+    blocHtml += "  </div>"
+    blocHtml += "  <p class='nameClassroom'>" + classe + "</p>" //style='left: 0px;'
+    blocHtml += "</div>"
+
+    return blocHtml;
+  }
+
+
+  function appendClassroomToContainer(classe) {
+    /*append a classroom image in the classroom container*/
+
+    $("#containerClassroom").children().remove();
+    $("#containerClassroom").append(classe);
+    classe.removeClass("classroomIcon").addClass("currentClassroom");
+    console.log(classe.height());
+    console.log(classe.width());
+    centerVertically($("#containerClassroom"), classe);
+    centerHorinzontally($("#containerClassroom"), classe);
+
+  }
+
+
+
+  function displayClassrooms() {
+    /*display all the classrooms in the classroom window. Call the function createClassrooms*/
+
+    windowClassrooms.append(blocClassrooms);
+
+    createClassrooms();
+    $(".containerImgC").css("display", "block");
+    centerHorinzontally($(".containerImgC"), $(".nameClassroom"));
+    centerHorinzontally($(".containerImgC"), $(".classroomImage"));
+
+    if (loadedImgClassroomIcon == false) {
+
+      $(".classroomIcon").on("load", function() {
+        centerHorinzontally($(".classroomImage"), $(".classroomIcon"));
+        centerVertically($(".classroomImage"), $(".classroomIcon"));
+        //  loadedImgClassroomIcon = true;
+      });
+
+    }
+
+
+    centerHorinzontally($(".classroomImage"), $(".classroomIcon"));
+    centerVertically($(".classroomImage"), $(".classroomIcon"));
+
+
+  }
 
 
   function displayWindowClassrooms() {
+    /*display the window which contains all the classrooms*/
 
     windowClassrooms.addClass("windowClassrooms");
     blocPage.append(windowClassrooms);
@@ -222,13 +301,31 @@ $(document).ready(function() {
 
     $("#beforewindowClassrooms").click(function() {
 
-
+      removeClassrooms();
       removeWindow(windowClassrooms, $(this));
     });
 
-
-
   }
+
+  function removeClassrooms() {
+    /*remove all the pupills image in the pupills window*/
+    $("#blocClassrooms").children().remove();
+  }
+
+
+  function addSelectedClassroom(image, idClasse) {
+    selectedIconClassroom.attr("class", idClasse);
+    selectedIconClassroom.insertAfter(image);
+    image.addClass("hasSelectedIconClassroom");
+  }
+
+
+  /******************************************************************************************************
+
+  **********************************OTHERS******************************************
+
+  *******************************************************************************************************/
+
 
 
   function blurElement(element, size) {
@@ -248,26 +345,7 @@ $(document).ready(function() {
   }
 
 
-  function addSelected(image, index) {
-    image.append(selectedIcon);
 
-    /*  if (image.css("border", "2px solid green")) {
-        console.log(image.css("border", "2px solid green"));
-      }*/
-    //image.css("border", "2px solid green");
-
-    selectedIcon.attr("id", index);
-
-  }
-
-  function addSelectedC(image, index) {
-    image.append(selectedIconC);
-
-
-    //  image.css("border", "2px solid green");
-
-    selectedIconC.attr("id", index);
-  }
 
   function removeWindow(container, before) {
     container.remove();
@@ -282,11 +360,6 @@ $(document).ready(function() {
 
 
 
-
-
-
-
-
   function centerVertically(container, content) {
     var space;
     space = container.height() - content.height();
@@ -297,10 +370,12 @@ $(document).ready(function() {
 
 
   function centerHorinzontally(container, content) {
+    //  console.log(container.attr("class") + " : " + container.width());
+    //  console.log(content.attr("class") + " : " + content.width());
     var space;
     space = container.width() - content.width();
     space /= 2;
-    content.css("left", space);
+    content.css("left", space + "px");
   }
 
 
@@ -308,9 +383,6 @@ $(document).ready(function() {
     var hContent = content.height();
     content.css("width", hContent);
   }
-
-
-
 
 
 });

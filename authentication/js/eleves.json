@@ -1,0 +1,65 @@
+{
+  "cp": [{
+    "display_name": "Ren\u00e9e-Th\u00e9r\u00e8se Baudry Maillard",
+    "name": "pelletierluc",
+    "image": "img/michel.jpg"
+  }, {
+    "display_name": "Olivie Masse-Carpentier Fontaine",
+    "name": "anastasie33",
+    "image": "img/michel.jpg"
+  }, {
+    "display_name": "Georges Charpentier Guerin",
+    "name": "laetitia81",
+    "image": "img/michel.jpg"
+  }, {
+    "display_name": "Olivie Meyer-Cohen Francois",
+    "name": "chantalsauvage",
+    "image": "img/michel.jpg"
+  }, {
+    "display_name": "Colette-Audrey Thibault Costa",
+    "name": "lucelaroche",
+    "image": "img/michel.jpg"
+  }],
+  "ce1": [{
+    "display_name": "Vincent Baudry Foucher",
+    "name": "veroniquealexandre",
+    "image": "img/michel.jpg"
+  }, {
+    "display_name": "Roland-Henri Bonneau Wagner",
+    "name": "ccolas",
+    "image": "img/michel.jpg"
+  }, {
+    "display_name": "Virginie Benard Bourgeois",
+    "name": "bonninarnaude",
+    "image": "img/michel.jpg"
+  }, {
+    "display_name": "Jean de la Descamps Hamon",
+    "name": "maryadelaide",
+    "image": "img/michel.jpg"
+  }, {
+    "display_name": "Nathalie Camus Perret",
+    "name": "costeisaac",
+    "image": "img/michel.jpg"
+  }],
+  "maternelle": [{
+    "display_name": "Olivier Verdier Menard",
+    "name": "qleger",
+    "image": "img/michel.jpg"
+  }, {
+    "display_name": "Xavier Jourdan-Thomas Morel",
+    "name": "nicolasmarcel",
+    "image": "img/michel.jpg"
+  }, {
+    "display_name": "Auguste Millet Martinez",
+    "name": "adrienne11",
+    "image": "img/michel.jpg"
+  }, {
+    "display_name": "Odette de Vasseur Guillon",
+    "name": "mauriceollivier",
+    "image": "img/michel.jpg"
+  }, {
+    "display_name": "Bertrand Fabre Descamps",
+    "name": "delattredorothee",
+    "image": "img/michel.jpg"
+  }]
+}
