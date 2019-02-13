@@ -1,0 +1,65 @@
+{
+  "cp": [{
+    "display_name": "Henriette Lamy Rodrigues",
+    "name": "remy49",
+    "image": "img/remy49.png"
+  }, {
+    "display_name": "Thomas-Pierre Blanchet Moreau",
+    "name": "susan00",
+    "image": "img/susan00.png"
+  }, {
+    "display_name": "Aim\u00e9e Lebrun-Remy Ferrand",
+    "name": "roland48",
+    "image": "img/roland48.png"
+  }, {
+    "display_name": "St\u00e9phane Girard de Lacombe Legrand",
+    "name": "charriernicolas",
+    "image": "img/charriernicolas.png"
+  }, {
+    "display_name": "Anastasie Cordier Delannoy",
+    "name": "henriettechartier",
+    "image": "img/henriettechartier.png"
+  }],
+  "ce1": [{
+    "display_name": "Lorraine Le Fernandes Fournier",
+    "name": "udupre",
+    "image": "img/udupre.png"
+  }, {
+    "display_name": "Raymond Techer Leduc",
+    "name": "cfernandez",
+    "image": "img/cfernandez.png"
+  }, {
+    "display_name": "Caroline Pinto Caron",
+    "name": "bernardhardy",
+    "image": "img/bernardhardy.png"
+  }, {
+    "display_name": "Jeanne Maury du Clerc Julien",
+    "name": "ilesage",
+    "image": "img/ilesage.png"
+  }, {
+    "display_name": "Valentine Muller Pires",
+    "name": "bergeralexandria",
+    "image": "img/bergeralexandria.png"
+  }],
+  "maternelle": [{
+    "display_name": "Guy Bazin du Allain Menard",
+    "name": "martin10",
+    "image": "img/martin10.png"
+  }, {
+    "display_name": "Julien-\u00c9ric Pasquier Andre",
+    "name": "kdupont",
+    "image": "img/kdupont.png"
+  }, {
+    "display_name": "Oc\u00e9ane Didier Etienne",
+    "name": "eugene34",
+    "image": "img/eugene34.png"
+  }, {
+    "display_name": "Adrienne Thomas Laporte",
+    "name": "coulonnicolas",
+    "image": "img/coulonnicolas.png"
+  }, {
+    "display_name": "Suzanne Andre Rousset",
+    "name": "kcoste",
+    "image": "img/kcoste.png"
+  }]
+}

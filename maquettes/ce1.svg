@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="186.78043mm"
+   height="186.78043mm"
+   viewBox="0 0 186.78043 186.78043"
+   version="1.1"
+   id="svg898"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   sodipodi:docname="ce1.svg">
+  <defs
+     id="defs892" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="388.78115"
+     inkscape:cy="302.17426"
+     inkscape:document-units="mm"
+     inkscape:current-layer="g1467"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1680"
+     inkscape:window-height="982"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata895">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-9.4193126,-38.812165)">
+    <g
+       id="g1467">
+      <rect
+         y="40.261665"
+         x="10.868814"
+         height="183.88142"
+         width="183.88142"
+         id="rect876"
+         style="opacity:1;fill:#335933;fill-opacity:0.94117647;stroke:#ffffff;stroke-width:2.89899993;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal" />
+      <text
+         id="text886"
+         y="141.44832"
+         x="78.271492"
+         style="font-style:normal;font-weight:normal;font-size:25.39999962px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           id="tspan888"
+           style="font-size:25.39999962px;fill:#ffffff;stroke-width:0.26458332"
+           y="141.44832"
+           x="78.271492"
+           sodipodi:role="line">CE1</tspan></text>
+    </g>
+  </g>
+</svg>

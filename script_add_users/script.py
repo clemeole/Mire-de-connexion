@@ -1,23 +1,27 @@
 from faker import Faker
+import json
 
 f = Faker("fr_FR")
 
+pupillsJson = {
+"cp": [],
+"ce1": [],
+"maternelle": []
+}
 
 
-with open("maternelle1.txt", "w") as file:
 
-    for i in range(15):
+for classe in pupillsJson:
 
-        file.write(f.user_name().replace("-", "")+ "\n")
+    for i in range(5):
+        #file.write(class, "_", f.user_name().replace("-", "")+ ";"+ f.name() + " " + f.last_name() + "\n")
+        login = f.user_name().replace('-', '')
+        objet = {"display_name": f'{f.name()} {f.last_name()}' , "name": login, "image": f"img/{login}.png"}
 
-with open("cp1.txt", "w") as file:
+        pupillsJson[classe].append(objet)
 
-    for i in range(15):
 
-        file.write(f.user_name().replace("-", "")+ "\n")
 
-with open("ce1.txt", "w") as file:
 
-    for i in range(15):
-
-        file.write(f.user_name().replace("-", "")+ "\n")
+with open("eleves.json", "w") as file:
+    file.write(json.dumps(pupillsJson))

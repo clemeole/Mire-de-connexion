@@ -1,0 +1,15 @@
+ce1_nathaliebarbe;Inès Hoareau Barbe
+ce1_jourdanoceane;Thierry Lacombe Boulanger
+ce1_boulayalix;Denis Barthelemy-Pinto Fleury
+ce1_bonneauantoine;Théodore Delorme Vincent
+ce1_rogermaggie;Zacharie Cordier Colin
+cp1_brunelemmanuelle;Juliette Michaud Ledoux
+cp1_timothee45;Margot du Pelletier Guillet
+cp1_andrebertrand;Alain du Paris Alexandre
+cp1_ggimenez;Hugues-Thomas Remy Guillot
+cp1_theophileweiss;Éric Delaunay Camus
+maternelle1_denis00;Valérie Leveque Hardy
+maternelle1_lejeuneconstance;Grégoire-Pierre Henry Garnier
+maternelle1_juliettevallee;Thierry Lopes de la Chretien Dupont
+maternelle1_jules72;Célina Dufour Leduc
+maternelle1_eugene70;Corinne Collin Techer
