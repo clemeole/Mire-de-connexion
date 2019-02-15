@@ -1,4 +1,10 @@
+/*var cursorPupill = $("#cursorPupill");
+var cursorClassroom = $("#cursorClassroom");*/
+
 $(document).ready(function() {
+
+
+  $("#blocPage").draggable();
 
   var divLeft = document.querySelector("#divLeft");
   var divRight = document.querySelector("#divRight");
@@ -28,10 +34,66 @@ $(document).ready(function() {
   var divPower = document.querySelector("#divPower");
   var power = document.querySelector("#power");
 
+
+
   //var name = document.querySelector("label");
 
 
 
+  /*  centerHorinzontally($("#divLeft"), cursorClassroom);
+    centerHorinzontally($("#divRight"), cursorPupill);
+
+    centerHorinzontally($("#divLeft"), cursorClassroom);
+    centerHorinzontally($("#divRight"), cursorPupill);
+
+    cursorClassroom.css("opacity", "0");
+    cursorPupill.css("opacity", "0");
+
+    setTimeout(function() {
+      cursorClassroom.animate({
+        opacity: "1"
+      }, 200);
+
+      cursorPupill.animate({
+        opacity: "1"
+      }, 200);
+    }, 900);
+
+
+    function loopP() {
+      cursorPupill.animate({
+        'top': '66%'
+      }, {
+        duration: 1000,
+        complete: function() {
+          cursorPupill.animate({
+            top: "68%"
+          }, {
+            duration: 1000,
+            complete: loopP
+          });
+        }
+      });
+    }
+    loopP();
+
+    function loopC() {
+      cursorClassroom.animate({
+        'top': '66%'
+      }, {
+        duration: 1000,
+        complete: function() {
+          cursorClassroom.animate({
+            top: "68%"
+          }, {
+            duration: 1000,
+            complete: loopC
+          });
+        }
+      });
+    }
+    loopC();
+  */
 
   centerVertically(divLeft, divLeft.children[0]);
   centerVertically(divRight, divRight.children[0]);

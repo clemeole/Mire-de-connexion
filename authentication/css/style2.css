@@ -34,9 +34,6 @@
     height: 100%;
 }
 
-img {
-    cursor: pointer;
-}
 
 #firstContainer {
     /*! float: left; */
@@ -189,4 +186,15 @@ input {
     transform: scaleX(0);
     transform-origin: 0 0;
     transition: all .15s ease;
+}
+
+.cursor{
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    text-align: center;
+}
+
+.cursor>img{
+    height: 100%;
 }

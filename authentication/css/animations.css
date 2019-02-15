@@ -1,0 +1,25 @@
+.shining{
+  -webkit-animation: shining 3s;
+  -webkit-animation-iteration-count: infinite;
+}
+
+
+@-webkit-keyframes shining {
+
+  0%{
+    box-shadow: 0px 0px 20px 5px white;
+  }
+
+  50%{
+    box-shadow: 0px 0px 30px 10px white;
+  }
+  
+   70%{
+    box-shadow: 0px 0px 40px 10px white;
+  }
+  
+  100%{
+    box-shadow: 0px 0px 20px 5px white;
+  }
+
+}

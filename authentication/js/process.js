@@ -24,6 +24,9 @@ window.addEventListener("load", function() {
     tabImgPwd[i].children[0].setAttribute("id", i);
     tabImgPwd[i].addEventListener("click", function(event) {
       writePassword(this.children[0]);
+
+      //  setTimeout(function() {}, 3000);
+
     });
   }
 
@@ -152,6 +155,7 @@ window.addEventListener("load", function() {
 
       removeDiv1Img($(this));
       removeDiv1Animated(div1Animated);
+
 
     });
 

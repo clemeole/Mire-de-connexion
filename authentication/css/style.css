@@ -61,6 +61,8 @@ body::before {
   position: fixed;
   bottom: 50px;
   right: 50px;
+  
+  display: none;
 }
 
 #btn_check>img{
@@ -130,7 +132,8 @@ body::before {
   box-shadow: 0px 0px 5px 0px white;
 }
 
-#containerClassroom{
+#containerClassroom, #containerPupil{
+  //box-shadow: 0px 0px 40px 10px white;
 }
 
 #containerPupil{
@@ -190,4 +193,20 @@ body::before {
     height: 50px;
     background-color: white;
     display: none;
+  }
+
+  #timer{
+    position: absolute;
+    color: white;
+    top: 1%;
+    left: 70%;
+    font-size: 0.8rem;
+    height: 20px;
+    width: 20px;
+    background-color: rgba(204, 204, 204, 0.35);
+    text-align: center;
+  }
+
+  #timer>p{
+    margin: 0;
   }
