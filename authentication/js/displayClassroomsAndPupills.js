@@ -184,9 +184,24 @@ function displayPupills() {
 
   createPupills();
 
+  if ($(".pupillIcon").complete) {
+    loadedImgPupillIcon = true;
+  } else {
+    loadedImgPupillIcon = false;
+  }
+
+  // $(".pupillImage").each(function() {
+  //
+  //   if ($(this).complete) {
+  //     lo
+  //   }
+  //
+  // });
+
 
   if (loadedImgPupillIcon == false) {
     /*if pupillIcon images aren't loaded : display them; else if they are already loaded : display them normally*/
+
 
     $(".pupillIcon").on("load", function() {
 
@@ -196,14 +211,15 @@ function displayPupills() {
       });
 
     });
-    loadedImgPupillIcon = true;
+
   } else {
     $(".pupillImage").each(function() {
       centerHorinzontally($(this), $(this).children());
       centerVertically($(this), $(this).children());
     });
   }
-
+  //centerHorinzontally($(".pupillImage"), $(".pupillIcon"));
+  //centerVertically($(".pupillImage"), $(".pupillIcon"));
 }
 
 
@@ -316,10 +332,10 @@ function displayClassrooms() {
       //  loadedImgClassroomIcon = true;
     });
 
-    loadedImgClassroomIcon = true;
+    //loadedImgClassroomIcon = true;
   } else {
-    centerHorinzontally($(".classroomImage"), $(".classroomIcon"));
-    centerVertically($(".classroomImage"), $(".classroomIcon"));
+    //centerHorinzontally($(".classroomImage"), $(".classroomIcon"));
+    //centerVertically($(".classroomImage"), $(".classroomIcon"));
   }
 
 

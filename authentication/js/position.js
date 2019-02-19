@@ -4,7 +4,7 @@ var cursorClassroom = $("#cursorClassroom");*/
 $(document).ready(function() {
 
 
-  $("#blocPage").draggable();
+
 
   var divLeft = document.querySelector("#divLeft");
   var divRight = document.querySelector("#divRight");
