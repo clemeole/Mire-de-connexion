@@ -5,7 +5,20 @@
   border: 2px solid white;
   border-radius: 2%;
   z-index: 500;
-  overflow: scroll;
+  overflow-y: scroll;
+}
+
+.croix{
+  position: absolute;
+  top: 0.2rem;
+  right: 0.2rem;
+  display: inline-block;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.croix:hover{
+  opacity: 1;
 }
 
 #beforewindowPupills{
@@ -14,7 +27,14 @@
   width: 100%;
   height: 100%;
   z-index: 1;
+  //transition-duration: 0.5s;
 }
+
+/*#beforewindowPupills:hover{
+  cursor: pointer;
+  opacity: 0.3;
+  background-color: red;
+}*/
 
 #blocPupills{
   height: 100%;
@@ -60,7 +80,6 @@
 
 .pupillIcon{
   height: 90%;
-  position: absolute;
 }
 
 .pupillImage:hover{
@@ -94,5 +113,4 @@
 
 .currentPupill{
   height: 80%;
-  position: absolute;
 }

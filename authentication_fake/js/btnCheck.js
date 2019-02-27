@@ -17,7 +17,7 @@ function toEnd(t) {
     }, 400);
 
     $("#blocPage").animate({
-      right: parseInt($("#blocPage").css("width")) - parseInt($("#containerPupil").css("width")) + borderRightWidthContainer * 5 + borderLeftWidthContainer * 5
+      right: parseInt($("#blocPage").css("width")) //- parseInt($("#containerPupil").css("width")) + borderRightWidthContainer * 5 + borderLeftWidthContainer * 5
     }, 300);
 
     setTimeout(function() {
@@ -69,13 +69,6 @@ function toStart() {
   right = true;
 
 
-
-  $("#containerSmallImg").children().animate({
-    opacity: 0
-  }, 200);
-
-
-
   setTimeout(function() {
     $("#containerSmallImg").each(function() {
       $(this).children().remove();
@@ -85,6 +78,7 @@ function toStart() {
 
   currentPwd = "";
   appendEnterSessionButtun();
+
 }
 
 

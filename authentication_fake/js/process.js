@@ -21,17 +21,14 @@ window.addEventListener("load", function() {
 
 
   /*Password images*/
-
-
-  // for (var i = 0; i < $(".image").length; i += 1) {
-  //   $(".image").eq(i).children().attr("id", i);
-  //   listImgPwd.push(i);
-  //   console.log(listImgPwd);
-  //
-  //   $(".image").eq(i).click(function() {
-  //     console.log($(this).children());
-  //     writePassword($(this).children());
+  // for (var i = 0; i < tabImgPwd.length; i += 1) {
+  //   tabImgPwd[i].children[0].setAttribute("id", i);
+  //   tabImgPwd[i].addEventListener("click", function(event) {
+  //     writePassword(this.children[0]);
   //     appendEnterSessionButtun();
+  //     appendToConsole(currentPwd);
+  //     //  setTimeout(function() {}, 3000);
+  //
   //   });
   // }
 
@@ -47,7 +44,6 @@ window.addEventListener("load", function() {
     listImgPwd.push(i);
     console.log(listImgPwd);
   }
-
 
 
 
@@ -233,9 +229,9 @@ window.addEventListener("load", function() {
     if ($(".div1Img").index(div) != -1) {
       var indexDiv = $(".div1Img").index(div);
 
-      //console.log(indexDiv);
+      console.log(indexDiv);
       currentPwd = currentPwd.replace(currentPwd.charAt(indexDiv), "");
-      //console.log(currentPwd);
+      console.log(currentPwd);
 
       div.remove();
 
