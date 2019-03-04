@@ -9,6 +9,9 @@ body {
     background-image: url("../img/bg_space.jpg");
     position: relative;
     z-index: -1;
+    //background-repeat: repeat-y;
+    //background-position: center;
+    background-size: cover;
 }
 
 body::before {
@@ -37,8 +40,8 @@ body::before {
 #divLeft, #divRight{
   width: 50%;
   height: 100%;
-  display: inline-block;
-  float: left;
+  display: -webkit-flex;
+  -webkit-align-items: center;
 }
 
 
@@ -130,6 +133,9 @@ body::before {
   -webkit-transition-duration: .5s;
    position: relative;
   box-shadow: 0px 0px 5px 0px white;
+  display: -webkit-flex;
+  -webkit-align-items: center;
+  -webkit-justify-content: center;
 }
 
 #containerClassroom, #containerPupil{

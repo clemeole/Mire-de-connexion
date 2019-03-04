@@ -46,8 +46,8 @@ function displayWindowPupills() {
 
   $(".windowPupills").before("<div id= \"beforewindowPupills\"> </div>");
   squareDimensions(windowPupills);
-  centerVertically(blocPage, windowPupills);
-  centerHorinzontally(blocPage, windowPupills);
+  //centerVertically(blocPage, windowPupills);
+  //centerHorinzontally(blocPage, windowPupills);
 
   blurElement($("#topbar"), 5);
   blurElement($("#divLeft"), 5);
@@ -95,8 +95,7 @@ function appendPupillToContainer(pupill) {
 
   $("#containerPupil").append(currentPupill);
 
-  centerV($("#containerPupil"), currentPupill);
-  //centerH($("#containerPupil"), currentPupill);
+  //centerV($("#containerPupil"), currentPupill);
 
   //cursorPupill.css("opacity", "0");
   //$("#containerPupil").removeClass("shining");
@@ -130,7 +129,7 @@ function appendClassroomToContainer(classe) {
   $("#containerClassroom").children().remove();
   $("#containerClassroom").append(classe);
   classe.removeClass("classroomIcon").addClass("currentClassroom");;
-  centerV($("#containerClassroom"), classe);
+  //centerV($("#containerClassroom"), classe);
 
 }
 
@@ -147,8 +146,8 @@ function displayClassrooms() {
     $(".classroomIcon").on("load", function() {
       $(".classroomImage").each(function() {
 
-        centerHorinzontally($(this), $(this).children());
-        centerVertically($(this), $(this).children());
+        //centerHorinzontally($(this), $(this).children());
+        //centerVertically($(this), $(this).children());
       });
 
       //  loadedImgClassroomIcon = true;
@@ -156,13 +155,12 @@ function displayClassrooms() {
 
     //loadedImgClassroomIcon = true;
   } else {
-    //centerHorinzontally($(".classroomImage"), $(".classroomIcon"));
-    //centerVertically($(".classroomImage"), $(".classroomIcon"));
+
   }
 
 
-  centerHorinzontally($(".classroomImage"), $(".classroomIcon"));
-  centerVertically($(".classroomImage"), $(".classroomIcon"));
+  //centerHorinzontally($(".classroomImage"), $(".classroomIcon"));
+  //centerVertically($(".classroomImage"), $(".classroomIcon"));
 
 
 }
@@ -181,8 +179,8 @@ function displayWindowClassrooms() {
   $(".windowClassrooms").before("<div id= \"beforewindowClassrooms\"> </div>");
   //windowClassrooms.append(beforewindowClassrooms);
   squareDimensions(windowClassrooms);
-  centerVertically(blocPage, windowClassrooms);
-  centerHorinzontally(blocPage, windowClassrooms);
+  //centerVertically(blocPage, windowClassrooms);
+  //  centerHorinzontally(blocPage, windowClassrooms);
 
   blurElement($("#topbar"), 5);
   blurElement($("#divLeft"), 5);

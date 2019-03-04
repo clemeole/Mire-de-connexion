@@ -35,7 +35,10 @@ function toEnd(t) {
 
   }, t);
 
-  right = false;
+  setTimeout(function() {
+    right = false;
+  }, 1000);
+
 }
 
 function toStart() {
@@ -43,7 +46,8 @@ function toStart() {
   $("#btn_check2").css("display", "none");
   //$("#btn_check").css("display", "block");
 
-  $("#blocPage").css("zIndex", "auto");
+  $("#blocPage").css("zIndex", "5");
+
 
   $("#blocPage").animate({
     right: 0
@@ -66,7 +70,7 @@ function toStart() {
 
   //cursorPupill.css("opacity", "1");
   $("#containerPupil").addClass("shining");
-  right = true;
+
 
 
 
@@ -81,6 +85,10 @@ function toStart() {
       $(this).children().remove();
     });
   }, 200);
+
+  setTimeout(function() {
+    right = true;
+  }, 1000);
 
 
   currentPwd = "";

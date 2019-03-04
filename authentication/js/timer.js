@@ -4,7 +4,7 @@ setInterval(back, 1000);
 
 $(document).click(function() {
 
-  timer = 0;
+  timer = 10;
 
 });
 
@@ -12,10 +12,12 @@ $(document).click(function() {
 
 function back() {
 
-  if (timer <= 0) {
+  if (timer == 1000) {
     if (right == false) {
       appendPupillToContainer($("<img src = " + srcPupillDefault + " />"));
       toStart();
+
+
     }
     timer = 10;
   }
