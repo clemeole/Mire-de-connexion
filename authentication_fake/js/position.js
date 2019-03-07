@@ -3,7 +3,8 @@ var cursorClassroom = $("#cursorClassroom");*/
 
 $(document).ready(function() {
 
-
+  $("#date").empty();
+  $("#date").append(returnDate());
 
 
   var divLeft = document.querySelector("#divLeft");
@@ -95,8 +96,8 @@ $(document).ready(function() {
     loopC();
   */
 
-  centerVertically(divLeft, divLeft.children[0]);
-  centerVertically(divRight, divRight.children[0]);
+  //centerVertically(divLeft, divLeft.children[0]);
+  //centerVertically(divRight, divRight.children[0]);
 
   centerHorinzontally($("#containerClassroom"), classroomDefault);
   centerVerticallyJquery($("#containerClassroom"), classroomDefault);
@@ -111,26 +112,26 @@ $(document).ready(function() {
 
   //setRectangles(smallImgContainer, rectangles);
 
-  centerVertically(block, containerImg); //center the block of images relative to the window
-  centerVertically(secondContainer, containerInput); //center the block of the input relative to the window
+  //centerVertically(block, containerImg); //center the block of images relative to the window
+  //centerVertically(secondContainer, containerInput); //center the block of the input relative to the window
   //centerVertically(containerSmallImg, smallImg);
-  centerVertically(divPower, power);
+  //centerVertically(divPower, power);
 
   //name.style.paddingTop = (1 / 5) * containerImg.offsetHeight + "px";
 
 
-  for (var i = 0; i < images.length; i++) {
+  /*for (var i = 0; i < images.length; i++) {
     centerVertically(containerMdp, images[i]);
     i < smallImg.length ? centerVertically(smallImgContainer, smallImg[i]) : console.log();
     i < containerPicto.length ? centerVertically(containerPicto[i], picto[i]) : console.log();
 
-  }
+  }*/
 
 
 
 
   $("#containerSmallImg").css("height", parseInt($(".image").css("height")) / 2);
-  centerVerticallyJquery($("#containerInput"), $("#containerSmallImg"));
+  //centerVerticallyJquery($("#containerInput"), $("#containerSmallImg"));
 
 
 

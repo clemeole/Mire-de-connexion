@@ -316,3 +316,24 @@ function getCurrentPassword() {
 
   return pwd;
 }
+
+function appendStopClick(t) {
+
+  $("body").append($("<div id='stopClick'></div>"));
+
+}
+
+function removeStopClick() {
+  $("#stopClick").remove();
+}
+
+function returnDate() {
+  var j = new Array("Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche");
+  var m = new Array("Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre");
+  var d = new Date();
+  var jour = j[d.getDay() - 1];
+  var mois = m[d.getMonth()];
+
+  var str = jour + " " + d.getDate() + " " + mois + " " + d.getFullYear();
+  return str;
+}

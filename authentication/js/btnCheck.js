@@ -17,7 +17,7 @@ function toEnd(t) {
     }, 400);
 
     $("#blocPage").animate({
-      right: parseInt($("#blocPage").css("width")) - parseInt($("#containerPupil").css("width")) + borderRightWidthContainer * 5 + borderLeftWidthContainer * 5
+      right: parseInt($("#blocPage").css("width"))
     }, 300);
 
     setTimeout(function() {

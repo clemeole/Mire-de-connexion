@@ -1,8 +1,16 @@
 var classes = {};
 
 for (var i = 0; i < lightdm.users.length; i++) {
-  var c = lightdm.users[i].name.split("_")[0];
-  var p = lightdm.users[i].name.split("_")[1];
+
+  var c, p;
+  if (lightdm.users[i].name.split("_").length == 1) {
+    c = "none";
+    p = lightdm.users[i].name.split("_")[0];
+  } else {
+    c = lightdm.users[i].name.split("_")[0];
+    p = lightdm.users[i].name.split("_")[1];
+  }
+
 
   if (!(c in classes)) {
     classes[c] = [];
@@ -144,7 +152,83 @@ $(document).ready(function() {
 
 
   $(document).on("click", "#enterSession", function() {
-    console.log(getCurrentPassword());
+
+    // $("body").append($("<div id='stopClick'></div>"));
+    appendStopClick();
+
+    if (getCurrentPassword() == "012") {
+      alert("bien !");
+    } else {
+      $(".rectangle").css("background-color", "transparent");
+      $(".div1Img").css("background-color", "rgba(255, 29, 29, 0.55)");
+
+
+      $(".div1Img").each(function(i) {
+        for (var x = 1; x <= 3; x++) {
+          $(this).animate({
+            marginLeft: 4
+          }, 60).animate({
+            marginLeft: 0
+          }, 60);
+        }
+      });
+
+      var t = 250;
+      var counter = $(".div1Img").length - 1
+      var animationInterval = setInterval(animateInterval, t);
+
+
+
+      // $(".div1Img").animate({
+      //   height: 0
+      // }, t);
+      //
+      // $(".rectangle").animate({
+      //   opacity: 0
+      // }, t);
+      //
+      // $(".div2Img").animate({
+      //   opacity: 0
+      // }, t);
+
+
+      // $(".div1Img").children(".rectangle").animate({
+      //   opacity: 0
+      // }, t - t / 1.5);
+
+      function animateInterval() {
+
+        console.log("test");
+        console.log("counter : ", counter);
+        $(".div1Img").eq(counter).animate({
+          height: 0
+        }, t);
+
+
+        $(".div1Img").eq(counter).children(".rectangle").animate({
+          opacity: 0
+        }, t - t / 1.5);
+
+        $(".div1Img").eq(counter).children(".div2Img").animate({
+          opacity: 0
+        }, t - t / 1.5);
+
+
+        if (counter >= 0) {
+          console.log(counter);
+          counter -= 1
+        } else {
+          $(".div1Img").remove();
+          appendEnterSessionButtun();
+          clearInterval(animationInterval);
+          removeStopClick();
+        }
+
+      }
+
+
+      currentPwd = "";
+    }
   });
 
 

@@ -5,6 +5,8 @@
     position: absolute;
     opacity: 1;
     z-index: -1;
+    display: -webkit-flex;
+
 }
 
 #divPower{
@@ -39,14 +41,18 @@
     /*! float: left; */
     width: 60%;
     height: 99%;
-    display: inline-block;
+    display: -webkit-flex;
+    -webkit-align-items: center;
+    -webkit-justify-content: center;
 }
 
 #containerImg {
+    display: -webkit-flex;
+    -webkit-justify-content: space-around;
+    -webkit-flex-wrap: wrap;
     height: 342px;
     width: 342px;
     margin: auto;
-
   //box-shadow: 0px 0px 40px 1px white;
 }
 
@@ -54,13 +60,15 @@
 .image {
     width: 105px;
     height: 105px;
+/*     width: 31%;
+    height: 31%; */
     /*! background-color: blueviolet; */
-    float: left;
-    margin: 1%;
     border-radius: 5%;
-    text-align: center;
     background-color: rgba(204, 204, 204, 0.35);
     border: 1px solid white;
+    display: -webkit-flex;
+    -webkit-align-items: center;
+    -webkit-justify-content: center;
 }
 
 .image:hover{
@@ -99,56 +107,23 @@
 
 #secondContainer {
     /*! display: none; */
-    display: inline-block;
-    position: absolute;
     height: 100%;
     width: 40%;
+    display: -webkit-flex;
+    -webkit-align-items: center;
 }
 
 #containerInput {
     height: 40%;
     position: relative;
     width: 70%;
+     display: -webkit-flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-content: center;
+    -webkit-justify-content: center;
 }
 
-#containerInput > label {
-    font-size: 2.5rem;
-    display: block;
-    font-family: sans-serif;
-    color: white;
-    margin-bottom: 2%;
-}
-
-input {
-    z-index: 2;
-    background-color:rgba(0, 0, 0, 0);
-    color:white;
-    border: none;
-    outline:none;
-    font-size: 1rem;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    left: 2%;
-}
-
-#containerInput #inputBg {
-    width: 233px;
-    height: 35px;
-    color: white;
-    background-color: rgba(204, 204, 204, 0.35);
-    border: 1px solid white;
-    font-size: 1rem;
-    position: relative;
-    margin-bottom: 2%;
-}
-
-
-
-
-#pwdImg{
-    height: 50%;
-}
 
 #pPwd {
     font-size: 0.8rem;
@@ -203,4 +178,14 @@ input {
     position: absolute;
     right: -5%;
     height: 50px;
+}
+
+#console{
+  height: 300px;
+  width: 70%;
+  z-index: 100;
+  position: absolute;
+  bottom: 0;
+  background-color: grey;
+  overflow-y: scroll;
 }

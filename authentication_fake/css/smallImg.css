@@ -1,7 +1,5 @@
 #containerSmallImg {
-    height: 5%;
     position: relative;
-    position: absolute;
     width: 100%;
 }
 
@@ -17,8 +15,8 @@
     float: left;
 
     /*! border: 1px solid white; */
-    margin-right: 3.333%;
-    margin-bottom: 3.333%;
+    margin-right: 2.333%;
+    margin-bottom: 2.333%;
 
     position: relative;
 }

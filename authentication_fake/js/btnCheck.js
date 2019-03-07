@@ -35,7 +35,9 @@ function toEnd(t) {
 
   }, t);
 
-  right = false;
+  setTimeout(function() {
+    right = false;
+  }, 1000);
 }
 
 function toStart() {
@@ -66,7 +68,7 @@ function toStart() {
 
   //cursorPupill.css("opacity", "1");
   $("#containerPupil").addClass("shining");
-  right = true;
+
 
 
   setTimeout(function() {
@@ -78,6 +80,10 @@ function toStart() {
 
   currentPwd = "";
   appendEnterSessionButtun();
+
+  setTimeout(function() {
+    right = true;
+  }, 1000);
 
 }
 

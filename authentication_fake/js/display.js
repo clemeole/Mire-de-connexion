@@ -17,6 +17,18 @@
 
 function returnHTMLPupills(eleve, c) {
   /*generate pupills according to their classroom as images. return an HTML structure*/
+  // var blocHtml = "";
+  //
+  // userImg = eleve.image; //eleve.image.length > 0 ? eleve.image : 'img/michel.jpg';
+  // //console.log(c);
+  // blocHtml += "<div class='containerImg'>" // style='display: block;'
+  // blocHtml += "  <div id='" + eleve.name + "' class='" + c + " pupillImage' >" //style='left: 21.5px;'
+  // blocHtml += "    <img src = " + userImg + " class='pupillIcon'>" // style='display: inline-block; top: 8.5px; left: 13px;'
+  // blocHtml += "  </div>"
+  // blocHtml += "  <p class='namePupill'>" + eleve.display_name + "</p>" //style='left: 0px;'
+  // blocHtml += "</div>"
+  //console.log(eleve);
+
   var blocHtml = "";
 
   userImg = eleve.image; //eleve.image.length > 0 ? eleve.image : 'img/michel.jpg';
@@ -27,7 +39,6 @@ function returnHTMLPupills(eleve, c) {
   blocHtml += "  </div>"
   blocHtml += "  <p class='namePupill'>" + eleve.display_name + "</p>" //style='left: 0px;'
   blocHtml += "</div>"
-  //console.log(eleve);
 
 
   return blocHtml;
@@ -46,8 +57,8 @@ function displayWindowPupills() {
 
   $(".windowPupills").before("<div id= \"beforewindowPupills\"> </div>");
   squareDimensions(windowPupills);
-  centerVertically(blocPage, windowPupills);
-  centerHorinzontally(blocPage, windowPupills);
+  //centerVertically(blocPage, windowPupills);
+  //centerHorinzontally(blocPage, windowPupills);
 
   blurElement($("#topbar"), 5);
   blurElement($("#divLeft"), 5);
@@ -95,8 +106,8 @@ function appendPupillToContainer(pupill) {
 
   $("#containerPupil").append(currentPupill);
 
-  centerV($("#containerPupil"), currentPupill);
-  //centerH($("#containerPupil"), currentPupill);
+  //centerV($("#containerPupil"), currentPupill);
+
 
   //cursorPupill.css("opacity", "0");
   //$("#containerPupil").removeClass("shining");
@@ -130,7 +141,7 @@ function appendClassroomToContainer(classe) {
   $("#containerClassroom").children().remove();
   $("#containerClassroom").append(classe);
   classe.removeClass("classroomIcon").addClass("currentClassroom");;
-  centerV($("#containerClassroom"), classe);
+  //centerV($("#containerClassroom"), classe);
 
 }
 
@@ -147,8 +158,8 @@ function displayClassrooms() {
     $(".classroomIcon").on("load", function() {
       $(".classroomImage").each(function() {
 
-        centerHorinzontally($(this), $(this).children());
-        centerVertically($(this), $(this).children());
+        //centerHorinzontally($(this), $(this).children());
+        //centerVertically($(this), $(this).children());
       });
 
       //  loadedImgClassroomIcon = true;
@@ -156,13 +167,12 @@ function displayClassrooms() {
 
     //loadedImgClassroomIcon = true;
   } else {
-    //centerHorinzontally($(".classroomImage"), $(".classroomIcon"));
-    //centerVertically($(".classroomImage"), $(".classroomIcon"));
+
   }
 
 
-  centerHorinzontally($(".classroomImage"), $(".classroomIcon"));
-  centerVertically($(".classroomImage"), $(".classroomIcon"));
+  //centerHorinzontally($(".classroomImage"), $(".classroomIcon"));
+  //centerVertically($(".classroomImage"), $(".classroomIcon"));
 
 
 }
@@ -181,8 +191,8 @@ function displayWindowClassrooms() {
   $(".windowClassrooms").before("<div id= \"beforewindowClassrooms\"> </div>");
   //windowClassrooms.append(beforewindowClassrooms);
   squareDimensions(windowClassrooms);
-  centerVertically(blocPage, windowClassrooms);
-  centerHorinzontally(blocPage, windowClassrooms);
+  //centerVertically(blocPage, windowClassrooms);
+  //centerHorinzontally(blocPage, windowClassrooms);
 
   blurElement($("#topbar"), 5);
   blurElement($("#divLeft"), 5);
@@ -287,19 +297,6 @@ function squareDimensions(content) {
   content.css("width", hContent);
 }
 
-function checkValue(value, arr) {
-  var status = false;
-
-  for (var i = 0; i < arr.length; i++) {
-    var name = arr[i];
-    if (name == value) {
-      status = true;
-      break;
-    }
-  }
-
-  return status;
-}
 
 function appendEnterSessionButtun() {
   srcButtun = "img/btn_check.svg";
@@ -346,4 +343,26 @@ function getCurrentPassword() {
   });
 
   return pwd;
+}
+
+
+function appendStopClick(t) {
+
+  $("body").append($("<div id='stopClick'></div>"));
+
+}
+
+function removeStopClick() {
+  $("#stopClick").remove();
+}
+
+function returnDate() {
+  var j = new Array("Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche");
+  var m = new Array("Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre");
+  var d = new Date();
+  var jour = j[d.getDay() - 1];
+  var mois = m[d.getMonth()];
+
+  var str = jour + " " + d.getDate() + " " + mois + " " + d.getFullYear();
+  return str;
 }

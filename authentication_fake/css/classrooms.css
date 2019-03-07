@@ -6,6 +6,9 @@
   border: 2px solid white;
   //border-radius: 2%;
   z-index: 500;
+  top: 50%;  /* position the top  edge of the element at the middle of the parent */
+  left: 50%; /* position the left edge of the element at the middle of the parent */
+  -webkit-transform: translate(-50%, -50%);
 }
 
 #beforewindowClassrooms{
@@ -24,28 +27,32 @@
 }*/
 
 #blocClassrooms{
-  height: 100%;
+   height: 100%;
   width: 100%;
   position: relative;
 }
 
 .containerImgC{
-  float: left;
-  display: inline-block;
+   display: -webkit-flex;
+  -webkit-align-items: center;
+  -webkit-justify-content: center;
   width: 30%;
   height: 30%;
-  margin-right: 0.25rem;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
-  margin-left: 0.25rem;
+  //box-shadow: 0px 0px 5px 1px white;
+  -webkit-flex-direction: column;
   text-align: center;
+  margin: 1rem 0rem 1rem 1rem;
   position: relative;
+  float: left;
 }
 
 .classroomImage{
+   display: -webkit-flex;
+  -webkit-align-items: center;
+  -webkit-justify-content: center;
+  border: 2px solid white;
   position: absolute;
   position: relative;
-  border: 2px solid white;
   border-radius: 5%;
   background-color: rgba(204, 204, 204, 1);
   width: 80%;
@@ -82,11 +89,12 @@
 }
 
 .nameClassroom{
-  position: absolute;
+/*   position: absolute;
   bottom: -1rem;
   width: 100%;
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 0.9rem; */
+  font-size: 0.8rem;
 }
 
 

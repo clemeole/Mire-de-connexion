@@ -120,6 +120,8 @@
      display: -webkit-flex;
     -webkit-flex-direction: column;
     flex-direction: column;
+    -webkit-align-content: center;
+    -webkit-justify-content: center;
 }
 
 
@@ -130,6 +132,7 @@
     font-family: arial, sans-serif;
     width: 230px;
     color: yellow;
+    text-align: center;
 }
 
 #pPwd:hover {

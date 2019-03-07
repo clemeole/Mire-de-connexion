@@ -4,7 +4,8 @@ var cursorClassroom = $("#cursorClassroom");*/
 $(document).ready(function() {
 
 
-
+  $("#date").empty();
+  $("#date").append(returnDate());
 
   var divLeft = document.querySelector("#divLeft");
   var divRight = document.querySelector("#divRight");
