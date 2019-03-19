@@ -1,5 +1,8 @@
+//done
+
 /*var cursorPupill = $("#cursorPupill");
 var cursorClassroom = $("#cursorClassroom");*/
+
 
 $(document).ready(function() {
 

@@ -1,3 +1,5 @@
+//done
+
 var containerClassroom = $("#containerClassroom");
 var containerPupil = $("#containerPupil");
 
@@ -27,3 +29,4 @@ var loadedImgClassroomIcon = false;
 var loadedImgPupillIcon = false;
 
 var firstGeneration = true;
+var selectedUser;

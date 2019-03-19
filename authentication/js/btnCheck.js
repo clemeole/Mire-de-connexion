@@ -1,9 +1,11 @@
+//done
 var btnCheck = $("#btn_check");
 var btnCancel = $("#btn_cancel");
 var right = true; // if true you can go to the 2nd bloc (password)
 var borderLeftWidthContainer = parseInt($("#containerPupil").css("border-left-width"));
 var borderRightWidthContainer = parseInt($("#containerPupil").css("border-right-width"));
 $("#block").css("bottom", parseInt($("#block").css("height")) - parseInt($("#containerImg").css("marginTop")));
+
 
 function toEnd(t) {
   //$("#btn_check2").css("display", "block");
@@ -69,14 +71,17 @@ function toStart() {
   }, 300);
 
   //cursorPupill.css("opacity", "1");
-  $("#containerPupil").addClass("shining");
+  if ($("#containerPupil").children("img").attr("src") == "img/pupillDefault.png") {
+    $("#containerPupil").addClass("shining");
+  } else {
+    $("#containerPupil").removeClass("shining");
+  }
 
 
 
-
-  $("#containerSmallImg").children().animate({
-    opacity: 0
-  }, 200);
+  // $("#containerSmallImg").children().animate({
+  //   opacity: 0
+  // }, 200);
 
 
 
@@ -92,7 +97,7 @@ function toStart() {
 
 
   currentPwd = "";
-  appendEnterSessionButtun();
+
 }
 
 

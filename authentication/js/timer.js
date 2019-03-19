@@ -1,5 +1,10 @@
+//done
+
+/* Fichier qui met en place un timer qui, lorsque l'utilisateur est inactif, se met à 0 qui ramène l'utilisateur sur
+la page du départ (choisir une classe et un élève) */
 var timer = 10
 var myTimer;
+
 setInterval(back, 1000);
 
 $(document).click(function() {
@@ -12,12 +17,10 @@ $(document).click(function() {
 
 function back() {
 
-  if (timer == 1000) {
+  if (timer == 0) {
     if (right == false) {
       appendPupillToContainer($("<img src = " + srcPupillDefault + " />"));
       toStart();
-
-
     }
     timer = 10;
   }

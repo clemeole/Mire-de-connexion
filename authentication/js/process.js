@@ -1,3 +1,4 @@
+//done
 var tabImgPwd;
 var tabPicto;
 var tabSmallImg, positionTabSmallImg = -1;
@@ -8,6 +9,7 @@ var rectangles;
 var maxCara = 20;
 var allowWritePassword = true;
 var listImgPwd = [];
+
 
 window.addEventListener("load", function() {
 

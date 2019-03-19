@@ -1,7 +1,7 @@
+//done
 var classes = {};
 
 for (var i = 0; i < lightdm.users.length; i++) {
-
   var c, p;
   if (lightdm.users[i].name.split("_").length == 1) {
     c = "none";
@@ -10,7 +10,6 @@ for (var i = 0; i < lightdm.users.length; i++) {
     c = lightdm.users[i].name.split("_")[0];
     p = lightdm.users[i].name.split("_")[1];
   }
-
 
   if (!(c in classes)) {
     classes[c] = [];
@@ -24,65 +23,92 @@ for (var i = 0; i < lightdm.users.length; i++) {
 
 }
 
-console.log(classes);
-console.log("classes : ", Object.keys(classes).length);
-
-
-for (var key in classes) {
-  console.log(key, " : ");
-  for (var i = 0; i < classes[key].length; i++) {
-    console.log(classes[key][i].name);
-  }
-}
+// console.log(classes);
+// console.log("classes : ", Object.keys(classes).length);
 
 
 
 $(document).ready(function() {
 
-  $("#containerPupil").click(function() {
+  $("#containerPupil").click(function() { //Au clic sur le carré qui liste les élèves
 
-    displayWindowPupills();
+    $("body").on("keydown", function(e) {
+      if (e.which == 27) { //echap : ferme la fenêtre de la liste des élèves
+        $(".croix").remove();
+        removeAllHTMLPupills();
+        removeWindow(windowPupills, $("#beforewindowPupills"));
+      }
+    });
+
+    displayWindowPupills(); //Affiche la fenêtre avec les élèves listés
 
     if (getCurrentClassroomId() == "classroomDefault") {
-      for (classe in eleves) {
-        for (var i = 0; i < eleves[classe].length; i++) {
-          var p = returnHTMLPupills(eleves[classe][i], classe);
+      //Si aucune classe n'a été sélectionnée, on affiche tous les élèves toutes classes confondues
+
+      // for (classe in eleves) {
+      //   for (var i = 0; i < eleves[classe].length; i++) {
+      //     var p = returnHTMLPupills(eleves[classe][i], classe);
+      //     appendHtmlPupill(blocPupills, p);
+      //   }
+      // }
+
+      for (var key in classes) {
+        for (var i = 0; i < classes[key].length; i++) {
+
+          var user = classes[key][i];
+          var classe = key;
+          var p = returnHTMLPupills(user, classe);
           appendHtmlPupill(blocPupills, p);
         }
       }
+
     } else {
-      for (var i = 0; i < eleves[getCurrentClassroomId()].length; i++) {
-        var p = returnHTMLPupills(eleves[getCurrentClassroomId()][i], getCurrentClassroomId());
-        appendHtmlPupill(blocPupills, p);
+      //Sinon, liste les élèves en fonction de la classe sélectionnée
+      // for (var i = 0; i < eleves[getCurrentClassroomId()].length; i++) {
+      //   var p = returnHTMLPupills(eleves[getCurrentClassroomId()][i], getCurrentClassroomId());
+      //   appendHtmlPupill(blocPupills, p);
+      // }
+
+      for (var key in classes) {
+
+        for (var i = 0; i < classes[key].length; i++) {
+          var user = classes[key][i];
+          var classe = key;
+          if (classe == getCurrentClassroomId()) {
+            var p = returnHTMLPupills(user, classe);
+            appendHtmlPupill(blocPupills, p);
+            $("#console").append(user.name);
+            $("#console").append("<br />");
+          }
+
+        }
       }
 
     }
 
-    $(".pupillIcon").each(function() {
-      //centerV($(this).parent(), $(this));
-      console.log("yop");
-    });
-
   });
 
   $(document).on('click', '#beforewindowPupills', function() {
+    // Au clic HORS (=dans le vide sur les côtés) de la fenêtre des élèves, on ferme cette dernière
     $(".croix").remove();
     removeAllHTMLPupills();
     removeWindow(windowPupills, $(this));
-    $(".croix").remove();
 
     return false;
   });
 
 
-  $(document).on('click', '.pupillImage', function() {
-    stopFunction();
-    appendPupillToContainer($(this).children());
+  $(document).on('click', '.pupillImage', function() { // Au clic sur l'un des élèves listés dans la fenêtre
+    stopFunction(); // On arrête le setInterval (fichier timer.js)
+    appendPupillToContainer($(this).children()); // On fait appraître l'image de l'élève en question à la place de l'image par défaut dans le containerPupill
     appendClassroomToContainer($("<img src= 'img/" + $(this).attr("class").split(" ")[0] + ".png' id='" + $(this).attr("class").split(" ")[0] + "' />"));
-    //$(this).attr("class").split(" ")[0]
+
     removeAllHTMLPupills();
     removeWindow(windowPupills, $("#beforewindowPupills"));
     $("#containerClassroom").removeClass("shining");
+    $("#containerPupil").removeClass("shining");
+
+    selectedUser = $(this).attr("id");
     toEnd(400);
 
     return false;
@@ -90,31 +116,31 @@ $(document).ready(function() {
 
 
 
-  containerClassroom.click(function() {
+  containerClassroom.click(function() { // Au clic du carré blanc qui permet de lister les classes
 
     displayWindowClassrooms();
 
-    for (var classe in eleves) {
-      blocClassrooms.append(generateClassrooms(classe));
+    $("body").on("keydown", function(e) {
+      if (e.which == 27) { //echap : ferme la fenêtre de la liste des élèves
+        $(".croix").remove();
+        removeAllHTMLClassrooms();
+        removeWindow(windowClassrooms, $("#beforewindowClassrooms"));
+      }
+    });
+
+    for (var i in classes) {
+      blocClassrooms.append(generateClassrooms(i));
     }
-
-    $(".containerImgC").each(function() {
-      //centerV($(this).children(), $(this).children().children());
-    });
-
-    $(".classroomImage").each(function() {
-      //centerH($(this).parent(), $(this));
-    });
-
 
   });
 
-  $(document).on('click', '.classroomImage', function() {
-    stopFunction();
+  $(document).on('click', '.classroomImage', function() { // Au clic d'une des classes listées dans la fenêtre
+    stopFunction(); // On arrête le setInterval (fichier timer.js)
     $("#containerClassroom").removeClass("shining");
 
     if ($(".currentPupill").attr("class").split(" ")[0] != $(this).attr("id")) { // si l'image de l'élève n'a pas la même classe que celle selectionnée alors on remet l'image de l'élève par default
       appendPupillToContainer($("<img src = " + srcPupillDefault + " />"));
+      $("#containerPupil").addClass("shining");
 
     } else {
       toEnd(400);
@@ -131,6 +157,7 @@ $(document).ready(function() {
 
 
   $(document).on('click', '#beforewindowClassrooms', function() {
+    // Au clic HORS (=dans le vide sur les côtés) de la fenêtre des élèves, on ferme cette dernière
     $(".croix").remove();
     removeAllHTMLClassrooms();
     removeWindow(windowClassrooms, $(this));
@@ -140,7 +167,7 @@ $(document).ready(function() {
   });
 
 
-  $(document).on("click", ".croix", function() {
+  $(document).on("click", ".croix", function() { // Pour fermer la fenêtre
 
     $(this).remove();
     removeAllHTMLClassrooms();
@@ -154,81 +181,72 @@ $(document).ready(function() {
   $(document).on("click", "#enterSession", function() {
 
     // $("body").append($("<div id='stopClick'></div>"));
-    appendStopClick();
+    appendStopClick(); // Pendant la vérification du mot de passe, une div transparente empêche l'utilisateur d'actionner des boutons
 
-    if (getCurrentPassword() == "012") {
-      alert("bien !");
-    } else {
-      $(".rectangle").css("background-color", "transparent");
-      $(".div1Img").css("background-color", "rgba(255, 29, 29, 0.55)");
+    setTimeout(function() {
 
 
-      $(".div1Img").each(function(i) {
-        for (var x = 1; x <= 3; x++) {
-          $(this).animate({
-            marginLeft: 4
-          }, 60).animate({
-            marginLeft: 0
-          }, 60);
-        }
-      });
-
-      var t = 250;
-      var counter = $(".div1Img").length - 1
-      var animationInterval = setInterval(animateInterval, t);
+      if (getCurrentPassword() == "012") {
+        alert("bien !");
+        removeStopClick();
+      } else {
+        $(".rectangle").css("background-color", "transparent");
+        $(".div1Img").css("background-color", "rgba(255, 29, 29, 0.55)");
 
 
+        $(".div1Img").each(function(i) {
+          for (var x = 1; x <= 3; x++) {
+            $(this).animate({
+              marginLeft: 4
+            }, 60).animate({
+              marginLeft: 0
+            }, 60);
+          }
+        });
 
-      // $(".div1Img").animate({
-      //   height: 0
-      // }, t);
-      //
-      // $(".rectangle").animate({
-      //   opacity: 0
-      // }, t);
-      //
-      // $(".div2Img").animate({
-      //   opacity: 0
-      // }, t);
-
-
-      // $(".div1Img").children(".rectangle").animate({
-      //   opacity: 0
-      // }, t - t / 1.5);
-
-      function animateInterval() {
-
-        console.log("test");
-        console.log("counter : ", counter);
-        $(".div1Img").eq(counter).animate({
-          height: 0
-        }, t);
+        var t = 200;
+        var counter = $(".div1Img").length - 1
+        var animationInterval = setInterval(animateInterval, t);
 
 
-        $(".div1Img").eq(counter).children(".rectangle").animate({
-          opacity: 0
-        }, t - t / 1.5);
+        function animateInterval() {
+          //Fait disparaître chaque caractère du mot de passe 1 par 1
 
-        $(".div1Img").eq(counter).children(".div2Img").animate({
-          opacity: 0
-        }, t - t / 1.5);
+          console.log("test");
+          console.log("counter : ", counter);
+          $(".div1Img").eq(counter).animate({
+            height: 0
+          }, t);
+
+          $(".div1Img").eq(counter).children(".rectangle").animate({
+            opacity: 0
+          }, t - t / 1.5);
+
+          $(".div1Img").eq(counter).children(".div2Img").animate({
+            opacity: 0
+          }, t - t / 1.5);
 
 
-        if (counter >= 0) {
-          console.log(counter);
-          counter -= 1
-        } else {
-          $(".div1Img").remove();
-          appendEnterSessionButtun();
-          clearInterval(animationInterval);
-          removeStopClick();
+          if (counter >= 0) {
+            console.log(counter);
+            counter -= 1
+          } else {
+            $(".div1Img").remove();
+            appendEnterSessionButtun();
+            clearInterval(animationInterval);
+            removeStopClick();
+          }
+
         }
 
+
+        currentPwd = "";
       }
 
 
-      currentPwd = "";
-    }
+
+    }, 1000);
+
   });
 
 
