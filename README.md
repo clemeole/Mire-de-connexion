@@ -19,22 +19,22 @@ L'envoie des données (nom d'utilisateur + mot de passe) se fait via des méthod
 Cette mire de connexion n'est fonctionnelle que si des utilisateurs ainsi que leur mot de passe ont été crées au préalable avec une syntaxe précise :
 
 full name (lightdm.users.display_name) : **prénom nom** <br/>
-username (lightdm.users.name) : **classe_pseudo**
-password : plusieurs nombres **compris entre 0 et 8**
-image (lightdm.users.image) : **pseudo.jpg**
+username (lightdm.users.name) : **classe_pseudo** <br/>
+password : plusieurs nombres **compris entre 0 et 8** <br/>
+image (lightdm.users.image) : **pseudo.jpg** <br/>
 
 Exemple de condition de nommage :
 
-Full name : **Adrien Briant**
-username : **ce1_adriendu21**
-password : **58013**
-image : **adriendu21.jpg**
+Full name : **Adrien Briant** <br/>
+username : **ce1_adriendu21** <br/>
+password : **58013** <br/>
+image : **adriendu21.jpg** <br/>
 
 Mauvais exemple de condition de nommage :
 
-username : **adriendu21_ce1** ou **ce1_adrien_du_21**
-password : **99519** ou encore **abc123**
-image : **nomAléatoire.pdf**
+username : **adriendu21_ce1** ou **ce1_adrien_du_21** <br/>
+password : **99519** ou encore **abc123** <br/>
+image : **nomAléatoire.pdf** <br/>
 
 Remarques :
 Si vous ne mettez pas de classe (username : adriendu21), l'utilisateur adriendu21 sera automatiquement inséré dans la classe "none".
