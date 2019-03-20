@@ -24,8 +24,8 @@ L'envoie des données (nom d'utilisateur + mot de passe) se fait via des méthod
 
 2 dossiers sont à votre disposition :
   - eole_connection_patern_browser : le fichier index.html à l'intérieur permet de tester la mire dans un navigateur web. Des faux élèves ont été générés.
-  - eole_connection_patern : Il s'agit du dossier à mettre dans votre fichier de configuration pour que la mire de connexion soit fonctionnelle au chemin suivant : ```/usr/share/lightdm-webkit/themes/``` <br />
-  Pour que Lightdm comprenne qu'il s'agit de ce thème à choisir au démarrage de session, il faut aller dans le fichier de configuration au chemin suivant : ```/etc/lightdm/lightdm-webkit-greeter.conf```, puis y insérer le nom du dossier ```webkit-theme=eole_connection_patern```<br />
+  - eole_connection_patern : Il s'agit du dossier à placer au chemin suivant : ```/usr/share/lightdm-webkit/themes/``` <br />
+  Pour que Lightdm comprenne qu'il s'agit bien de ce thème à choisir au démarrage de session, il faut aller dans le fichier de configuration au chemin suivant : ```/etc/lightdm/lightdm-webkit-greeter.conf```, puis y insérer le nom du dossier ```webkit-theme=eole_connection_patern```<br />
 
 # Comment l'utiliser ?
 Cette mire de connexion n'est fonctionnelle que si des utilisateurs ainsi que leur mot de passe ont été crées au préalable avec une syntaxe précise :
@@ -52,6 +52,7 @@ Remarques :
 Si vous ne mettez pas de classe (username : adriendu21), l'utilisateur adriendu21 sera automatiquement inséré dans la classe "none".<br/>
 Si vous n'attribuez pas d'image à un utilisateur, celui-ci aura une image par défaut.<br/>
 Si le mot de passe contient des nombres supérieurs à 8, vous ne pourrez pas vous authentifier avec cette mire de connexion.<br/>
+**Le mot de passe est conçu de cette sorte : La première image en haut à gauche de la grille correspond au caractère 0. La deuxième image correspond au caractère 1, la troisème correspond au caractère 2, etc.**
 
 
 # Raccourcis claviers
