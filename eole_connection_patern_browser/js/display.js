@@ -1,3 +1,6 @@
+//done
+
+
 /******************************************************************************************************
 
 ******************************************************************************************************
@@ -18,23 +21,12 @@
 
 function returnHTMLPupills(eleve, c) {
   /*generate pupills according to their classroom as images. return an HTML structure*/
-  // var blocHtml = "";
-  //
-  // userImg = eleve.image; //eleve.image.length > 0 ? eleve.image : 'img/michel.jpg';
-  // //console.log(c);
-  // blocHtml += "<div class='containerImg'>" // style='display: block;'
-  // blocHtml += "  <div id='" + eleve.name + "' class='" + c + " pupillImage' >" //style='left: 21.5px;'
-  // blocHtml += "    <img src = " + userImg + " class='pupillIcon'>" // style='display: inline-block; top: 8.5px; left: 13px;'
-  // blocHtml += "  </div>"
-  // blocHtml += "  <p class='namePupill'>" + eleve.display_name + "</p>" //style='left: 0px;'
-  // blocHtml += "</div>"
-  //console.log(eleve);
-
   var blocHtml = "";
 
-  userImg = eleve.image;
+  //userImg = eleve.image;
+  userImg = "img/eleves/default_pupill.png";
+  console.log(userImg);
   //console.log(c);
-  $("#console").append(userImg, " hi<br/>");
   blocHtml += "<div class='containerImg'>" // style='display: block;'
   blocHtml += "  <div id='" + eleve.name + "' class='" + c + " pupillImage' >" //style='left: 21.5px;'
   blocHtml += "    <img src = " + userImg + " class='pupillIcon'>" // style='display: inline-block; top: 8.5px; left: 13px;'
@@ -108,11 +100,6 @@ function appendPupillToContainer(pupill) {
 
   $("#containerPupil").append(currentPupill);
 
-  //centerV($("#containerPupil"), currentPupill);
-
-
-  //cursorPupill.css("opacity", "0");
-  //$("#containerPupil").removeClass("shining");
 }
 /******************************************************************************************************
 
@@ -191,10 +178,7 @@ function displayWindowClassrooms() {
   windowClassrooms.append(croix);
 
   $(".windowClassrooms").before("<div id= \"beforewindowClassrooms\"> </div>");
-  //windowClassrooms.append(beforewindowClassrooms);
   squareDimensions(windowClassrooms);
-  //centerVertically(blocPage, windowClassrooms);
-  //centerHorinzontally(blocPage, windowClassrooms);
 
   blurElement($("#topbar"), 5);
   blurElement($("#divLeft"), 5);
@@ -313,25 +297,10 @@ function appendEnterSessionButtun() {
       }
 
     } else if ($("#containerSmallImg").children(".div1Img").length == 0) {
-      $("#pPwd>img").attr("src", "img/pictogrammes/soleil.svg");
       $("#enterSession").remove();
+      $("#pPwd>img").attr("src", "img/pictogrammes/soleil.svg");
     }
   }, 1);
-
-}
-
-function appendToConsole(text) {
-  $("#console").empty();
-  $("#console").append(text);
-}
-
-function cancelAuthentication() {
-  lightdm.cancel_authentication();
-}
-
-function startAuthentication(name) {
-  cancelAuthentication();
-  lightdm.start_authentication(name);
 
 }
 
@@ -347,7 +316,6 @@ function getCurrentPassword() {
 
   return pwd;
 }
-
 
 function appendStopClick(t) {
 

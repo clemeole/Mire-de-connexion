@@ -69,13 +69,6 @@
   -webkit-transform: scale(1.03);
 }
 
-#classroomDefault{
-  display: inline-block;
-  height: 100%;
-  position: absolute;
-}
-
-
 .classroomIcon{
   height: 90%;
 }
@@ -109,4 +102,9 @@
   height: 80%;
   width: auto;
   //position: absolute;
+}
+
+#classroomDefault{
+  display: inline-block;
+  height: 80%;
 }

@@ -1,9 +1,10 @@
+//done
+
+
 var classes = {};
 
-
-
 for (var i = 0; i < lightdm.users.length; i++) {
-  var c, p;
+  var c, p, img;
   if (lightdm.users[i].name.split("_").length == 1) {
     c = "none";
     p = lightdm.users[i].name.split("_")[0];
@@ -19,10 +20,9 @@ for (var i = 0; i < lightdm.users.length; i++) {
   var userImg = lightdm.users[i].image.split("/");
   userImg = userImg[userImg.length - 1];
   var userImgExtension = userImg.substring(userImg.length - 3, userImg.length);
-  $("#console").append(lightdm.users[i].image, " <br/>");
+  //console.log(lightdm.users[i].image);
 
   if (userImgExtension == "jpg" || userImgExtension == "png" || userImgExtension == "svg") {
-    $("#console").append(userImgExtension);
     userImg = lightdm.users[i].image;
   } else {
     userImg = "img/eleves/default_pupill.png";
@@ -39,38 +39,49 @@ for (var i = 0; i < lightdm.users.length; i++) {
 // console.log(classes);
 // console.log("classes : ", Object.keys(classes).length);
 
+
+
 $(document).ready(function() {
 
-  $("#containerPupil").click(function() {
+  $("#containerPupil").click(function() { //Au clic sur le carré qui liste les élèves
 
     $("body").on("keydown", function(e) {
-      if (e.which == 27) { //echap
+      if (e.which == 27) { //echap : ferme la fenêtre de la liste des élèves
         $(".croix").remove();
         removeAllHTMLPupills();
         removeWindow(windowPupills, $("#beforewindowPupills"));
       }
     });
 
-    displayWindowPupills();
+    displayWindowPupills(); //Affiche la fenêtre avec les élèves listés
 
     if (getCurrentClassroomId() == "classroomDefault") {
+      //Si aucune classe n'a été sélectionnée, on affiche tous les élèves toutes classes confondues
+
+      // for (classe in eleves) {
+      //   for (var i = 0; i < eleves[classe].length; i++) {
+      //     var p = returnHTMLPupills(eleves[classe][i], classe);
+      //     appendHtmlPupill(blocPupills, p);
+      //   }
+      // }
+
       for (var key in classes) {
         for (var i = 0; i < classes[key].length; i++) {
 
           var user = classes[key][i];
           var classe = key;
           var p = returnHTMLPupills(user, classe);
-
-          $("#console").append("hello ", user.image);
           appendHtmlPupill(blocPupills, p);
         }
       }
 
     } else {
+      //Sinon, liste les élèves en fonction de la classe sélectionnée
+      // for (var i = 0; i < eleves[getCurrentClassroomId()].length; i++) {
+      //   var p = returnHTMLPupills(eleves[getCurrentClassroomId()][i], getCurrentClassroomId());
+      //   appendHtmlPupill(blocPupills, p);
+      // }
 
-      $("#console").append(getCurrentClassroomId());
-
-      $("#console").empty();
       for (var key in classes) {
 
         for (var i = 0; i < classes[key].length; i++) {
@@ -86,46 +97,31 @@ $(document).ready(function() {
         }
       }
 
-      // for (var i = 0; i < lightdm.users.length; i++) {var p = returnHTMLPupills(user, classe);
-      //appendHtmlPupill(blocPupills, p);
-      //   var user = lightdm.users[i];
-      //   var split = user.name.split("_");
-      //   var classe = split[0];
-      //
-      //   if (classe == getCurrentClassroomId()) {
-      //     var p = returnHTMLPupills(user, classe);
-      //     appendHtmlPupill(blocPupills, p);
-      //   }
-      //
-      // }
-
     }
 
   });
 
   $(document).on('click', '#beforewindowPupills', function() {
+    // Au clic HORS (=dans le vide sur les côtés) de la fenêtre des élèves, on ferme cette dernière
     $(".croix").remove();
     removeAllHTMLPupills();
     removeWindow(windowPupills, $(this));
-    $(".croix").remove();
 
     return false;
   });
 
 
-  $(document).on('click', '.pupillImage', function() {
-    stopFunction();
-    appendPupillToContainer($(this).children());
+  $(document).on('click', '.pupillImage', function() { // Au clic sur l'un des élèves listés dans la fenêtre
+    stopFunction(); // On arrête le setInterval (fichier timer.js)
+    appendPupillToContainer($(this).children()); // On fait appraître l'image de l'élève en question à la place de l'image par défaut dans le containerPupill
     appendClassroomToContainer($("<img src= 'img/classes/" + $(this).attr("class").split(" ")[0] + ".png' id='" + $(this).attr("class").split(" ")[0] + "' />"));
-    //$(this).attr("class").split(" ")[0]
+
     removeAllHTMLPupills();
     removeWindow(windowPupills, $("#beforewindowPupills"));
     $("#containerClassroom").removeClass("shining");
     $("#containerPupil").removeClass("shining");
 
     selectedUser = $(this).attr("id");
-    appendToConsole(selectedUser);
-    startAuthentication(selectedUser);
     toEnd(400);
 
     return false;
@@ -133,12 +129,12 @@ $(document).ready(function() {
 
 
 
-  containerClassroom.click(function() {
+  containerClassroom.click(function() { // Au clic du carré blanc qui permet de lister les classes
 
     displayWindowClassrooms();
 
     $("body").on("keydown", function(e) {
-      if (e.which == 27) { //echap
+      if (e.which == 27) { //echap : ferme la fenêtre de la liste des élèves
         $(".croix").remove();
         removeAllHTMLClassrooms();
         removeWindow(windowClassrooms, $("#beforewindowClassrooms"));
@@ -151,8 +147,8 @@ $(document).ready(function() {
 
   });
 
-  $(document).on('click', '.classroomImage', function() {
-    stopFunction();
+  $(document).on('click', '.classroomImage', function() { // Au clic d'une des classes listées dans la fenêtre
+    stopFunction(); // On arrête le setInterval (fichier timer.js)
     $("#containerClassroom").removeClass("shining");
 
     if ($(".currentPupill").attr("class").split(" ")[0] != $(this).attr("id")) { // si l'image de l'élève n'a pas la même classe que celle selectionnée alors on remet l'image de l'élève par default
@@ -174,6 +170,7 @@ $(document).ready(function() {
 
 
   $(document).on('click', '#beforewindowClassrooms', function() {
+    // Au clic HORS (=dans le vide sur les côtés) de la fenêtre des élèves, on ferme cette dernière
     $(".croix").remove();
     removeAllHTMLClassrooms();
     removeWindow(windowClassrooms, $(this));
@@ -183,7 +180,7 @@ $(document).ready(function() {
   });
 
 
-  $(document).on("click", ".croix", function() {
+  $(document).on("click", ".croix", function() { // Pour fermer la fenêtre
 
     $(this).remove();
     removeAllHTMLClassrooms();
@@ -193,21 +190,18 @@ $(document).ready(function() {
     return false;
   });
 
+
   $(document).on("click", "#enterSession", function() {
 
-    $("#pPwd>img").attr("src", "img/pictogrammes/soleil.svg");
-    appendStopClick();
-    appendToConsole(getCurrentPassword());
-    //alert("|" + currentPwd + "|");
-    lightdm.provide_secret(getCurrentPassword());
+    // $("body").append($("<div id='stopClick'></div>"));
+    appendStopClick(); // Pendant la vérification du mot de passe, une div transparente empêche l'utilisateur d'actionner des boutons
 
     setTimeout(function() {
 
-      if (lightdm.is_authenticated) {
-        appendToConsole("authenticated !");
-        lightdm.login(lightdm.authentication_user, lightdm.default_session);
-        cancelAuthentication();
-        startAuthentication(selectedUser);
+
+      if (getCurrentPassword() == "012") {
+        alert("bien !");
+        removeStopClick();
       } else {
         $(".rectangle").css("background-color", "transparent");
         $(".div1Img").css("background-color", "rgba(255, 29, 29, 0.55)");
@@ -229,13 +223,13 @@ $(document).ready(function() {
 
 
         function animateInterval() {
+          //Fait disparaître chaque caractère du mot de passe 1 par 1
 
           console.log("test");
           console.log("counter : ", counter);
           $(".div1Img").eq(counter).animate({
             height: 0
           }, t);
-
 
           $(".div1Img").eq(counter).children(".rectangle").animate({
             opacity: 0
@@ -259,16 +253,15 @@ $(document).ready(function() {
         }
 
 
-        cancelAuthentication();
-        startAuthentication(selectedUser);
-        appendToConsole("not authenticated !");
         currentPwd = "";
       }
+
 
       $("#pPwd>img").attr("src", "img/pictogrammes/soleil.svg");
     }, 1000);
 
   });
+
 
   $(document).on("keydown", "body", function(event) {
     if (event.which == 37) {
@@ -291,6 +284,5 @@ $(document).ready(function() {
 
     }
   });
-
 
 });

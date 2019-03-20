@@ -1,3 +1,4 @@
+//done
 var tabImgPwd;
 var tabPicto;
 var tabSmallImg, positionTabSmallImg = -1;
@@ -21,14 +22,17 @@ window.addEventListener("load", function() {
 
 
   /*Password images*/
-  // for (var i = 0; i < tabImgPwd.length; i += 1) {
-  //   tabImgPwd[i].children[0].setAttribute("id", i);
-  //   tabImgPwd[i].addEventListener("click", function(event) {
-  //     writePassword(this.children[0]);
-  //     appendEnterSessionButtun();
-  //     appendToConsole(currentPwd);
-  //     //  setTimeout(function() {}, 3000);
+
+
+  // for (var i = 0; i < $(".image").length; i += 1) {
+  //   $(".image").eq(i).children().attr("id", i);
+  //   listImgPwd.push(i);
+  //   console.log(listImgPwd);
   //
+  //   $(".image").eq(i).click(function() {
+  //     console.log($(this).children());
+  //     writePassword($(this).children());
+  //     appendEnterSessionButtun();
   //   });
   // }
 
@@ -44,6 +48,7 @@ window.addEventListener("load", function() {
     listImgPwd.push(i);
     console.log(listImgPwd);
   }
+
 
 
 
@@ -229,9 +234,9 @@ window.addEventListener("load", function() {
     if ($(".div1Img").index(div) != -1) {
       var indexDiv = $(".div1Img").index(div);
 
-
+      //console.log(indexDiv);
       currentPwd = currentPwd.replace(currentPwd.charAt(indexDiv), "");
-
+      //console.log(currentPwd);
 
       div.remove();
 
@@ -295,7 +300,6 @@ window.addEventListener("load", function() {
     var currentDisplayRectangle = $(".rectangle").css("display");
     var currentDiv2ImgOpacity = $(".div2Img").css("opacity");
 
-
     var srcAstre = $("#pPwd>img").attr("src");
 
     if ($("#containerSmallImg").children().length == 0) {
@@ -309,6 +313,7 @@ window.addEventListener("load", function() {
         $("#pPwd>img").attr("src", "img/pictogrammes/soleil.svg");
       }
     }
+
 
 
     if (currentDisplayRectangle == "block") {

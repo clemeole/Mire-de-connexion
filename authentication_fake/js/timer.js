@@ -1,5 +1,6 @@
 var timer = 10
 var myTimer;
+
 setInterval(back, 1000);
 
 $(document).click(function() {

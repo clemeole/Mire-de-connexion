@@ -99,11 +99,11 @@ $(document).ready(function() {
   //centerVertically(divLeft, divLeft.children[0]);
   //centerVertically(divRight, divRight.children[0]);
 
-  centerHorinzontally($("#containerClassroom"), classroomDefault);
+  /*centerHorinzontally($("#containerClassroom"), classroomDefault);
   centerVerticallyJquery($("#containerClassroom"), classroomDefault);
 
   centerHorinzontally($("#containerPupil"), pupillDefault);
-  centerVerticallyJquery($("#containerPupil"), pupillDefault);
+  centerVerticallyJquery($("#containerPupil"), pupillDefault);*/
 
 
   //smallImgContainer.style.width = document.querySelector("input").offsetWidth + "px";

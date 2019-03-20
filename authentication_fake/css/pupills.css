@@ -115,7 +115,6 @@
 #pupillDefault{
   display: inline-block;
   height: 80%;
-  position: absolute;
 }
 
 .currentPupill{

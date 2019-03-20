@@ -6,7 +6,7 @@
     opacity: 1;
     z-index: -1;
     display: -webkit-flex;
-
+    
 }
 
 #divPower{
@@ -184,14 +184,4 @@
     position: absolute;
     right: -5%;
     height: 50px;
-}
-
-#console{
-  height: 300px;
-  width: 70%;
-  z-index: 100;
-  position: absolute;
-  bottom: 0;
-  background-color: grey;
-  overflow-y: scroll;
 }

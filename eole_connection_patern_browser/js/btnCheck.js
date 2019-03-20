@@ -1,3 +1,5 @@
+//done
+
 var btnCheck = $("#btn_check");
 var btnCancel = $("#btn_cancel");
 var right = true; // if true you can go to the 2nd bloc (password)
@@ -18,7 +20,7 @@ function toEnd(t) {
     }, 400);
 
     $("#blocPage").animate({
-      right: parseInt($("#blocPage").css("width")) //- parseInt($("#containerPupil").css("width")) + borderRightWidthContainer * 5 + borderLeftWidthContainer * 5
+      right: parseInt($("#blocPage").css("width"))
     }, 300);
 
     setTimeout(function() {
@@ -39,6 +41,7 @@ function toEnd(t) {
   setTimeout(function() {
     right = false;
   }, 1000);
+
 }
 
 function toStart() {
@@ -46,7 +49,8 @@ function toStart() {
   $("#btn_check2").css("display", "none");
   //$("#btn_check").css("display", "block");
 
-  $("#blocPage").css("zIndex", "auto");
+  $("#blocPage").css("zIndex", "5");
+
 
   $("#blocPage").animate({
     right: 0
@@ -67,14 +71,18 @@ function toStart() {
     //opacity: "toggle"
   }, 300);
 
-
+  //cursorPupill.css("opacity", "1");
   if ($("#containerPupil").children("img").attr("src") == "img/eleves/pupillDefault.png") {
     $("#containerPupil").addClass("shining");
   } else {
     $("#containerPupil").removeClass("shining");
   }
 
-  //cursorPupill.css("opacity", "1");
+
+
+  // $("#containerSmallImg").children().animate({
+  //   opacity: 0
+  // }, 200);
 
 
 
@@ -84,10 +92,10 @@ function toStart() {
     });
   }, 200);
 
-
   setTimeout(function() {
     right = true;
   }, 1000);
+
 
   currentPwd = "";
 
@@ -103,7 +111,7 @@ $(document).ready(function() {
 
   btnCheck.click(function() {
 
-    if ($("#containerClassroom").children().attr("src") == "img/classes/classroomDefault.svg" && $("#containerPupil").children().attr("src") == "img/eleves.pupillDefault.png") {
+    if ($("#containerClassroom").children().attr("src") == "img/classes/classroomDefault.svg" && $("#containerPupil").children().attr("src") == "img/eleves/pupillDefault.png") {
 
       // $('#containerClassroom').animate('shake', {
       //   times: 3
