@@ -18,8 +18,8 @@ L'envoie des données (nom d'utilisateur + mot de passe) se fait via des méthod
 # Comment l'utiliser ?
 Cette mire de connexion n'est fonctionnelle que si des utilisateurs ainsi que leur mot de passe ont été crées au préalable avec une syntaxe précise :
 
-full name (lightdm.users.display_name) : **prénom nom**
-username (lightdm.users.name) : **classe_- ![#f03c15]pseudo`#f03c15`**
+full name (lightdm.users.display_name) : **prénom nom** <br/>
+username (lightdm.users.name) : **classe_pseudo**
 password : plusieurs nombres **compris entre 0 et 8**
 image (lightdm.users.image) : **pseudo.jpg**
 
