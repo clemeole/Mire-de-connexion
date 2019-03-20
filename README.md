@@ -48,11 +48,11 @@ username : **adriendu21_ce1** ou **ce1_adrien_du_21** <br/>
 password : **99519** ou encore **abc123** <br/>
 image : **nomAléatoire.pdf** <br/>
 
-Remarques :
-Si vous ne mettez pas de classe (username : adriendu21), l'utilisateur adriendu21 sera automatiquement inséré dans la classe "none".<br/>
-Si vous n'attribuez pas d'image à un utilisateur, celui-ci aura une image par défaut.<br/>
-Si le mot de passe contient des nombres supérieurs à 8, vous ne pourrez pas vous authentifier avec cette mire de connexion.<br/>
-**Le mot de passe est conçu de cette sorte : La première image en haut à gauche de la grille correspond au caractère 0. La deuxième image correspond au caractère 1, la troisème correspond au caractère 2, etc.**
+## Remarques :
+- Si vous ne mettez pas de classe (username : adriendu21), l'utilisateur adriendu21 sera automatiquement inséré dans la classe "none".<br/>
+- Si vous n'attribuez pas d'image à un utilisateur, celui-ci aura une image par défaut.<br/>
+- Si le mot de passe contient des nombres supérieurs à 8, vous ne pourrez pas vous authentifier avec cette mire de connexion.<br/>
+- **Le mot de passe est conçu de cette sorte : La première image en haut à gauche de la grille correspond au caractère 0. La deuxième image correspond au caractère 1, la troisème correspond au caractère 2, etc.**
 
 
 # Raccourcis claviers
