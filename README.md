@@ -24,7 +24,8 @@ L'envoie des données (nom d'utilisateur + mot de passe) se fait via des méthod
 
 2 dossiers sont à votre disposition :
   - eole_connection_patern_browser : le fichier index.html à l'intérieur permet de tester la mire dans un navigateur web. Des faux élèves ont été générés.
-  - eole_connection_patern : Il s'agit du dossier à mettre dans votre configuration Linux pour que la mire de connexion soit fonctionnelle.
+  - eole_connection_patern : Il s'agit du dossier à mettre dans votre fichier de configuration pour que la mire de connexion soit fonctionnelle au chemin suivant : ```/usr/share/lightdm-webkit/themes/``` <br />
+  Pour que Lightdm comprenne qu'il s'agit de ce thème à choisir au démarrage de session, il faut aller dans le fichier de configuration au chemin suivant : ```/etc/lightdm/lightdm-webkit-greeter.conf```, puis y insérer le nom du dossier ```webkit-theme=eole_connection_patern```<br />
 
 # Comment l'utiliser ?
 Cette mire de connexion n'est fonctionnelle que si des utilisateurs ainsi que leur mot de passe ont été crées au préalable avec une syntaxe précise :
