@@ -209,6 +209,7 @@ body::before {
 
 
   #timer{
+    display: none;
     position: absolute;
     color: white;
     top: 1%;

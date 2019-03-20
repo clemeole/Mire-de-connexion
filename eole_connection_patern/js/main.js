@@ -293,4 +293,9 @@ $(document).ready(function() {
   });
 
 
+  $(document).on("click", "#divPower", function() {
+    lightdm.shutdown();
+    alert("hello");
+  });
+
 });
