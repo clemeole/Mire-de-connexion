@@ -58,4 +58,4 @@ image : **nomAléatoire.pdf** <br/>
 # Raccourcis claviers
  - <- : permet de revenir à l'espace qui permet de choisir un utilisateur et sa classe
  - -> : permet d'aller à l'espace qui permet de saisir un mot de passe
- - echap : permet de fermer une fenêtre (utilisateur et classe)
+ - echap : permet de fermer une fenêtre (utilisateur et classe) 
